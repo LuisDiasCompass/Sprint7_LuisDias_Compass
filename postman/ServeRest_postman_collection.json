@@ -479,7 +479,7 @@
 									"script": {
 										"exec": [
 											"const password = pm.variables.replaceIn('{{$randomPassword}}').slice(0, 4);\r",
-											"pm.collectionVariables.set(\"longPassword\", password);"
+											"pm.collectionVariables.set(\"shortPassword\", password);"
 										],
 										"type": "text/javascript"
 									}
@@ -1572,7 +1572,7 @@
 													"script": {
 														"exec": [
 															"const password = pm.variables.replaceIn('{{$randomPassword}}').slice(0, 4);\r",
-															"pm.collectionVariables.set(\"longPassword\", password);"
+															"pm.collectionVariables.set(\"shortPassword\", password);"
 														],
 														"type": "text/javascript"
 													}
@@ -2286,7 +2286,7 @@
 													"script": {
 														"exec": [
 															"const password = pm.variables.replaceIn('{{$randomPassword}}').slice(0, 4);\r",
-															"pm.collectionVariables.set(\"longPassword\", password);"
+															"pm.collectionVariables.set(\"shortPassword\", password);"
 														],
 														"type": "text/javascript"
 													}
