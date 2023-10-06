@@ -23,8 +23,10 @@
 											"    pm.response.to.have.status(201);\r",
 											"});\r",
 											"\r",
-											"pm.test(\"Body matches string\", function () {\r",
-											"    pm.expect(pm.response.text()).to.include(\"Cadastro realizado com sucesso\");\r",
+											"pm.test(\"Checks response body\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData.message).to.eql(\"Cadastro realizado com sucesso\");\r",
+											"    pm.expect(jsonData.id).not.null;\r",
 											"});\r",
 											""
 										],
@@ -45,17 +47,101 @@
 									}
 								},
 								"url": {
-									"raw": "localhost:3000/usuarios",
+									"raw": "{{baseUrl}}/usuarios",
 									"host": [
-										"localhost"
+										"{{baseUrl}}"
 									],
-									"port": "3000",
 									"path": [
 										"usuarios"
 									]
 								}
 							},
-							"response": []
+							"response": [
+								{
+									"name": "Cadastro realizado com sucesso",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"nome\": \"{{$randomFullName}}\",\r\n  \"email\": \"{{$randomExampleEmail}}\",\r\n  \"password\": \"{{validPassword}}\",\r\n  \"administrador\": \"true\"\r\n}\r\n",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/usuarios",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"usuarios"
+											]
+										}
+									},
+									"status": "Created",
+									"code": 201,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "x-dns-prefetch-control",
+											"value": "off"
+										},
+										{
+											"key": "x-frame-options",
+											"value": "SAMEORIGIN"
+										},
+										{
+											"key": "strict-transport-security",
+											"value": "max-age=15552000; includeSubDomains"
+										},
+										{
+											"key": "x-download-options",
+											"value": "noopen"
+										},
+										{
+											"key": "x-content-type-options",
+											"value": "nosniff"
+										},
+										{
+											"key": "x-xss-protection",
+											"value": "1; mode=block"
+										},
+										{
+											"key": "x-moesif-transaction-id",
+											"value": "a774980d-8960-413e-b808-01d26d041cc0"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "82"
+										},
+										{
+											"key": "Date",
+											"value": "Fri, 06 Oct 2023 17:15:44 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"message\": \"Cadastro realizado com sucesso\",\n    \"_id\": \"xPEyXQS8gTe3U0lk\"\n}"
+								}
+							]
 						},
 						{
 							"name": "CT_002: Realizar cadastro como usuário comum válido",
@@ -68,8 +154,10 @@
 											"    pm.response.to.have.status(201);\r",
 											"});\r",
 											"\r",
-											"pm.test(\"Body matches string\", function () {\r",
-											"    pm.expect(pm.response.text()).to.include(\"Cadastro realizado com sucesso\");\r",
+											"pm.test(\"Checks response body\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData.message).to.eql(\"Cadastro realizado com sucesso\");\r",
+											"    pm.expect(jsonData.id).not.null;\r",
 											"});\r",
 											""
 										],
@@ -90,17 +178,104 @@
 									}
 								},
 								"url": {
-									"raw": "localhost:3000/usuarios",
+									"raw": "{{baseUrl}}/usuarios",
 									"host": [
-										"localhost"
+										"{{baseUrl}}"
 									],
-									"port": "3000",
 									"path": [
 										"usuarios"
 									]
 								}
 							},
-							"response": []
+							"response": [
+								{
+									"name": "Cadastro realizado com sucesso",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"nome\": \"{{$randomFullName}}\",\r\n  \"email\": \"{{$randomExampleEmail}}\",\r\n  \"password\": \"{{validPassword}}\",\r\n  \"administrador\": \"false\"\r\n}\r\n",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/usuarios",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"usuarios"
+											]
+										}
+									},
+									"status": "Created",
+									"code": 201,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "x-dns-prefetch-control",
+											"value": "off"
+										},
+										{
+											"key": "x-frame-options",
+											"value": "SAMEORIGIN"
+										},
+										{
+											"key": "strict-transport-security",
+											"value": "max-age=15552000; includeSubDomains"
+										},
+										{
+											"key": "x-download-options",
+											"value": "noopen"
+										},
+										{
+											"key": "x-content-type-options",
+											"value": "nosniff"
+										},
+										{
+											"key": "x-xss-protection",
+											"value": "1; mode=block"
+										},
+										{
+											"key": "x-moesif-transaction-id",
+											"value": "c2503959-94b5-4f41-8bbe-a22b2f593eb9"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json",
+											"name": "Content-Type",
+											"description": "",
+											"type": "text"
+										},
+										{
+											"key": "Content-Length",
+											"value": "82"
+										},
+										{
+											"key": "Date",
+											"value": "Fri, 06 Oct 2023 17:17:15 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"message\": \"Cadastro realizado com sucesso\",\n    \"_id\": \"IW0Wf4IdWMHkHn5N\"\n}"
+								}
+							]
 						},
 						{
 							"name": "CT_003: Realizar cadastro com nome em branco",
@@ -113,8 +288,9 @@
 											"    pm.response.to.have.status(400);\r",
 											"});\r",
 											"\r",
-											"pm.test(\"Body matches string\", function () {\r",
-											"    pm.expect(pm.response.text()).to.include(\"nome não pode ficar em branco\");\r",
+											"pm.test(\"Checks response body\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData.nome).to.eql(\"nome não pode ficar em branco\");\r",
 											"});\r",
 											""
 										],
@@ -127,7 +303,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n  \"nome\": \"\",\r\n  \"email\": \"{{$randomExampleEmail}}\",\r\n  \"password\": \"{{validPassword}}\",\r\n  \"administrador\": \"false\"\r\n}\r\n",
+									"raw": "{\r\n  \"nome\": \" \",\r\n  \"email\": \"{{$randomExampleEmail}}\",\r\n  \"password\": \"{{validPassword}}\",\r\n  \"administrador\": \"false\"\r\n}\r\n",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -135,11 +311,10 @@
 									}
 								},
 								"url": {
-									"raw": "localhost:3000/usuarios",
+									"raw": "{{baseUrl}}/usuarios",
 									"host": [
-										"localhost"
+										"{{baseUrl}}"
 									],
-									"port": "3000",
 									"path": [
 										"usuarios"
 									]
@@ -167,8 +342,9 @@
 											"    pm.response.to.have.status(400);\r",
 											"});\r",
 											"\r",
-											"pm.test(\"Body matches string\", function () {\r",
-											"    pm.expect(pm.response.text()).to.include(\"email não pode ficar em branco\");\r",
+											"pm.test(\"Checks response body\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData.email).to.eql(\"email não pode ficar em branco\");\r",
 											"});\r",
 											""
 										],
@@ -189,17 +365,101 @@
 									}
 								},
 								"url": {
-									"raw": "localhost:3000/usuarios",
+									"raw": "{{baseUrl}}/usuarios",
 									"host": [
-										"localhost"
+										"{{baseUrl}}"
 									],
-									"port": "3000",
 									"path": [
 										"usuarios"
 									]
 								}
 							},
-							"response": []
+							"response": [
+								{
+									"name": "E-mail é obrigatório",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"nome\": \"{{$randomFullName}}\",\r\n  \"email\": \"\",\r\n  \"password\": \"{{validPassword}}\",\r\n  \"administrador\": \"false\"\r\n}\r\n",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/usuarios",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"usuarios"
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "x-dns-prefetch-control",
+											"value": "off"
+										},
+										{
+											"key": "x-frame-options",
+											"value": "SAMEORIGIN"
+										},
+										{
+											"key": "strict-transport-security",
+											"value": "max-age=15552000; includeSubDomains"
+										},
+										{
+											"key": "x-download-options",
+											"value": "noopen"
+										},
+										{
+											"key": "x-content-type-options",
+											"value": "nosniff"
+										},
+										{
+											"key": "x-xss-protection",
+											"value": "1; mode=block"
+										},
+										{
+											"key": "x-moesif-transaction-id",
+											"value": "74a96dd9-48f4-48b4-ac40-1fb7150bce6d"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "50"
+										},
+										{
+											"key": "Date",
+											"value": "Fri, 06 Oct 2023 17:20:44 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"email\": \"email não pode ficar em branco\"\n}"
+								}
+							]
 						},
 						{
 							"name": "CT_005: Realizar cadastro com password em branco",
@@ -212,8 +472,9 @@
 											"    pm.response.to.have.status(400);\r",
 											"});\r",
 											"\r",
-											"pm.test(\"Body matches string\", function () {\r",
-											"    pm.expect(pm.response.text()).to.include(\"password não pode ficar em branco\");\r",
+											"pm.test(\"Checks response body\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData.password).to.eql(\"password não pode ficar em branco\");\r",
 											"});\r",
 											""
 										],
@@ -226,7 +487,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n  \"nome\": \"{{$randomFullName}}\",\r\n  \"email\": \"{{$randomExampleEmail}}\",\r\n  \"password\": \"\",\r\n  \"administrador\": \"false\"\r\n}\r\n",
+									"raw": "{\r\n  \"nome\": \"{{$randomFullName}}\",\r\n  \"email\": \"{{$randomExampleEmail}}\",\r\n  \"password\": \" \",\r\n  \"administrador\": \"false\"\r\n}\r\n",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -234,11 +495,10 @@
 									}
 								},
 								"url": {
-									"raw": "localhost:3000/usuarios",
+									"raw": "{{baseUrl}}/usuarios",
 									"host": [
-										"localhost"
+										"{{baseUrl}}"
 									],
-									"port": "3000",
 									"path": [
 										"usuarios"
 									]
@@ -257,8 +517,9 @@
 											"    pm.response.to.have.status(400);\r",
 											"});\r",
 											"\r",
-											"pm.test(\"Body matches string\", function () {\r",
-											"    pm.expect(pm.response.text()).to.include(\"administrador deve ser 'true' ou 'false'\");\r",
+											"pm.test(\"Checks response body\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData.administrador).to.eql(\"administrador deve ser 'true' ou 'false'\");\r",
 											"});\r",
 											""
 										],
@@ -279,17 +540,101 @@
 									}
 								},
 								"url": {
-									"raw": "localhost:3000/usuarios",
+									"raw": "{{baseUrl}}/usuarios",
 									"host": [
-										"localhost"
+										"{{baseUrl}}"
 									],
-									"port": "3000",
 									"path": [
 										"usuarios"
 									]
 								}
 							},
-							"response": []
+							"response": [
+								{
+									"name": "Administrador é obrigatório",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"nome\": \"{{$randomFullName}}\",\r\n  \"email\": \"{{$randomExampleEmail}}\",\r\n  \"password\": \"{{validPassword}}\",\r\n  \"administrador\": \"\"\r\n}\r\n",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/usuarios",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"usuarios"
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "x-dns-prefetch-control",
+											"value": "off"
+										},
+										{
+											"key": "x-frame-options",
+											"value": "SAMEORIGIN"
+										},
+										{
+											"key": "strict-transport-security",
+											"value": "max-age=15552000; includeSubDomains"
+										},
+										{
+											"key": "x-download-options",
+											"value": "noopen"
+										},
+										{
+											"key": "x-content-type-options",
+											"value": "nosniff"
+										},
+										{
+											"key": "x-xss-protection",
+											"value": "1; mode=block"
+										},
+										{
+											"key": "x-moesif-transaction-id",
+											"value": "59bfe3a1-16f3-44ea-8ea7-b51cfaca373b"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "67"
+										},
+										{
+											"key": "Date",
+											"value": "Fri, 06 Oct 2023 17:23:22 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"administrador\": \"administrador deve ser 'true' ou 'false'\"\n}"
+								}
+							]
 						},
 						{
 							"name": "CT_007: Realizar cadastro com e-mail inválido",
@@ -302,8 +647,9 @@
 											"    pm.response.to.have.status(400);\r",
 											"});\r",
 											"\r",
-											"pm.test(\"Body matches string\", function () {\r",
-											"    pm.expect(pm.response.text()).to.include(\"email deve ser um email válido\");\r",
+											"pm.test(\"Checks response body\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData.email).to.eql(\"email deve ser um email válido\");\r",
 											"});\r",
 											""
 										],
@@ -324,17 +670,101 @@
 									}
 								},
 								"url": {
-									"raw": "localhost:3000/usuarios",
+									"raw": "{{baseUrl}}/usuarios",
 									"host": [
-										"localhost"
+										"{{baseUrl}}"
 									],
-									"port": "3000",
 									"path": [
 										"usuarios"
 									]
 								}
 							},
-							"response": []
+							"response": [
+								{
+									"name": "E-mail deve ser válido",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"nome\": \"{{$randomFullName}}\",\r\n  \"email\": \"{{$randomUserName}}.com\",\r\n  \"password\": \"{{validPassword}}\",\r\n  \"administrador\": \"false\"\r\n}\r\n",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/usuarios",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"usuarios"
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "x-dns-prefetch-control",
+											"value": "off"
+										},
+										{
+											"key": "x-frame-options",
+											"value": "SAMEORIGIN"
+										},
+										{
+											"key": "strict-transport-security",
+											"value": "max-age=15552000; includeSubDomains"
+										},
+										{
+											"key": "x-download-options",
+											"value": "noopen"
+										},
+										{
+											"key": "x-content-type-options",
+											"value": "nosniff"
+										},
+										{
+											"key": "x-xss-protection",
+											"value": "1; mode=block"
+										},
+										{
+											"key": "x-moesif-transaction-id",
+											"value": "fab63923-3eca-4dfc-9968-bef6b8477cdc"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "50"
+										},
+										{
+											"key": "Date",
+											"value": "Fri, 06 Oct 2023 17:24:29 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"email\": \"email deve ser um email válido\"\n}"
+								}
+							]
 						},
 						{
 							"name": "CT_008: Realizar cadastro com e-mail já cadastrado",
@@ -347,8 +777,9 @@
 											"    pm.response.to.have.status(400);\r",
 											"});\r",
 											"\r",
-											"pm.test(\"Body matches string\", function () {\r",
-											"    pm.expect(pm.response.text()).to.include(\"Este email já está sendo usado\");\r",
+											"pm.test(\"Checks response body\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData.message).to.eql(\"Este email já está sendo usado\");\r",
 											"});\r",
 											""
 										],
@@ -369,17 +800,101 @@
 									}
 								},
 								"url": {
-									"raw": "localhost:3000/usuarios",
+									"raw": "{{baseUrl}}/usuarios",
 									"host": [
-										"localhost"
+										"{{baseUrl}}"
 									],
-									"port": "3000",
 									"path": [
 										"usuarios"
 									]
 								}
 							},
-							"response": []
+							"response": [
+								{
+									"name": "E-mail já cadastrado",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"nome\": \"{{$randomFullName}}\",\r\n  \"email\": \"{{adminEmail}}\",\r\n  \"password\": \"{{validPassword}}\",\r\n  \"administrador\": \"false\"\r\n}\r\n",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/usuarios",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"usuarios"
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "x-dns-prefetch-control",
+											"value": "off"
+										},
+										{
+											"key": "x-frame-options",
+											"value": "SAMEORIGIN"
+										},
+										{
+											"key": "strict-transport-security",
+											"value": "max-age=15552000; includeSubDomains"
+										},
+										{
+											"key": "x-download-options",
+											"value": "noopen"
+										},
+										{
+											"key": "x-content-type-options",
+											"value": "nosniff"
+										},
+										{
+											"key": "x-xss-protection",
+											"value": "1; mode=block"
+										},
+										{
+											"key": "x-moesif-transaction-id",
+											"value": "72acbb3b-c279-4a54-96ca-d40f58c29e0f"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "53"
+										},
+										{
+											"key": "Date",
+											"value": "Fri, 06 Oct 2023 17:25:43 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"message\": \"Este email já está sendo usado\"\n}"
+								}
+							]
 						},
 						{
 							"name": "CT_009: Realizar cadastro com provedor de e-mail Hotmail",
@@ -392,8 +907,9 @@
 											"    pm.response.to.have.status(400);\r",
 											"});\r",
 											"\r",
-											"pm.test(\"Body matches string\", function () {\r",
-											"    pm.expect(pm.response.text()).to.include(\"Não é possível realizar cadastro com provedor de e-mail Hotmail\");\r",
+											"pm.test(\"Checks response body\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData.message).to.eql(\"Não é possível realizar cadastro com provedor de e-mail Hotmail\");\r",
 											"});\r",
 											""
 										],
@@ -414,11 +930,10 @@
 									}
 								},
 								"url": {
-									"raw": "localhost:3000/usuarios",
+									"raw": "{{baseUrl}}/usuarios",
 									"host": [
-										"localhost"
+										"{{baseUrl}}"
 									],
-									"port": "3000",
 									"path": [
 										"usuarios"
 									]
@@ -437,8 +952,9 @@
 											"    pm.response.to.have.status(400);\r",
 											"});\r",
 											"\r",
-											"pm.test(\"Body matches string\", function () {\r",
-											"    pm.expect(pm.response.text()).to.include(\"Não é possível realizar cadastro com provedor de e-mail Gmail\");\r",
+											"pm.test(\"Checks response body\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData.message).to.eql(\"Não é possível realizar cadastro com provedor de e-mail Gmail\");\r",
 											"});\r",
 											""
 										],
@@ -459,11 +975,10 @@
 									}
 								},
 								"url": {
-									"raw": "localhost:3000/usuarios",
+									"raw": "{{baseUrl}}/usuarios",
 									"host": [
-										"localhost"
+										"{{baseUrl}}"
 									],
-									"port": "3000",
 									"path": [
 										"usuarios"
 									]
@@ -492,8 +1007,9 @@
 											"    pm.response.to.have.status(400);\r",
 											"});\r",
 											"\r",
-											"pm.test(\"Body matches string\", function () {\r",
-											"    pm.expect(pm.response.text()).to.include(\"A senha deve ter no mínimo 5 caracteres\");\r",
+											"pm.test(\"Checks response body\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData.message).to.eql(\"A senha deve ter no mínimo 5 caracteres\");\r",
 											"});\r",
 											""
 										],
@@ -514,11 +1030,10 @@
 									}
 								},
 								"url": {
-									"raw": "localhost:3000/usuarios",
+									"raw": "{{baseUrl}}/usuarios",
 									"host": [
-										"localhost"
+										"{{baseUrl}}"
 									],
-									"port": "3000",
 									"path": [
 										"usuarios"
 									]
@@ -548,8 +1063,9 @@
 											"    pm.response.to.have.status(400);\r",
 											"});\r",
 											"\r",
-											"pm.test(\"Body matches string\", function () {\r",
-											"    pm.expect(pm.response.text()).to.include(\"A senha deve ter no máximo 10 caracteres\");\r",
+											"pm.test(\"Checks response body\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData.message).to.eql(\"A senha deve ter no máximo 10 caracteres\");\r",
 											"});\r",
 											""
 										],
@@ -570,11 +1086,10 @@
 									}
 								},
 								"url": {
-									"raw": "localhost:3000/usuarios",
+									"raw": "{{baseUrl}}/usuarios",
 									"host": [
-										"localhost"
+										"{{baseUrl}}"
 									],
-									"port": "3000",
 									"path": [
 										"usuarios"
 									]
@@ -622,7 +1137,83 @@
 									]
 								}
 							},
-							"response": []
+							"response": [
+								{
+									"name": "Listar usuários cadastrados",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/usuarios",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"usuarios"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "x-dns-prefetch-control",
+											"value": "off"
+										},
+										{
+											"key": "x-frame-options",
+											"value": "SAMEORIGIN"
+										},
+										{
+											"key": "strict-transport-security",
+											"value": "max-age=15552000; includeSubDomains"
+										},
+										{
+											"key": "x-download-options",
+											"value": "noopen"
+										},
+										{
+											"key": "x-content-type-options",
+											"value": "nosniff"
+										},
+										{
+											"key": "x-xss-protection",
+											"value": "1; mode=block"
+										},
+										{
+											"key": "x-moesif-transaction-id",
+											"value": "b58a92f2-aa67-4d9c-8777-85bc04aad667"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "32852"
+										},
+										{
+											"key": "Date",
+											"value": "Fri, 06 Oct 2023 18:50:13 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"quantidade\": 149,\n    \"usuarios\": [\n        {\n            \"nome\": \"Kristine Hahn\",\n            \"email\": \"Hope_Steuber10@example.net\",\n            \"password\": \"hVybqYUX\",\n            \"administrador\": \"false\",\n            \"_id\": \"0Ycs4TQdWplfwwFD\"\n        },\n        {\n            \"nome\": \"Fulano da Silva\",\n            \"email\": \"fulano@qa.com\",\n            \"password\": \"teste\",\n            \"administrador\": \"true\",\n            \"_id\": \"0uxuPY0cbmQhpEz1\"\n        },\n        {\n            \"nome\": \"Gregg Lang\",\n            \"email\": \"Scottie.Lakin80@example.org\",\n            \"password\": \"eWGszNoX\",\n            \"administrador\": \"true\",\n            \"_id\": \"1R2PJQD0fFaU04fR\"\n        },\n        {\n            \"nome\": \"Irene Prohaska MD\",\n            \"email\": \"Grady18@example.org\",\n            \"password\": \"X5fkJI1u\",\n            \"administrador\": \"false\",\n            \"_id\": \"2cwZ6GVto1Oa6Tjm\"\n        },\n        {\n            \"nome\": \"Charlene Lockman\",\n            \"email\": \"Reuben40@example.net\",\n            \"password\": \"pOOG8cJg\",\n            \"administrador\": \"false\",\n            \"_id\": \"2nxSPtIs9fcuXNS8\"\n        },\n        {\n            \"nome\": \"Lucia Mueller IV\",\n            \"email\": \"Sophia_Okuneva34@example.com\",\n            \"password\": \"a6KacN30\",\n            \"administrador\": \"true\",\n            \"_id\": \"2tIUfTMZxjDKbPqV\"\n        },\n        {\n            \"nome\": \"Perry Green\",\n            \"email\": \"Wilbert.Pfeffer@example.org\",\n            \"password\": \"9m_ajUqL\",\n            \"administrador\": \"false\",\n            \"_id\": \"3rLVdnawSi9NZPut\"\n        },\n        {\n            \"nome\": \"Arnold Bogan\",\n            \"email\": \"Roxane_Durgan42@gmail.com\",\n            \"password\": \"C2Xqjw5Q\",\n            \"administrador\": \"false\",\n            \"_id\": \"3wi23YpvIHNuj1Cn\"\n        },\n        {\n            \"nome\": \"Toni Altenwerth V\",\n            \"email\": \"Winnifred_Miller@example.net\",\n            \"password\": \"d_MN\",\n            \"administrador\": \"false\",\n            \"_id\": \"409oAwYvi9073Fo4\"\n        },\n        {\n            \"nome\": \"Richard Hermiston\",\n            \"email\": \"Ashlee.Emard@example.net\",\n            \"password\": \"FdPjdfKeDxO\",\n            \"administrador\": \"true\",\n            \"_id\": \"40ixxB3hdBfpWzxN\"\n        },\n        {\n            \"nome\": \"Carol Beahan\",\n            \"email\": \"Citlalli11@hotmail.com\",\n            \"password\": \"o9avJLw6\",\n            \"administrador\": \"true\",\n            \"_id\": \"42Ehl2Ygp72m81U9\"\n        },\n        {\n            \"nome\": \"Lucy Steuber\",\n            \"email\": \"Theodore.Rohan59@example.com\",\n            \"password\": \"hVybqYUX\",\n            \"administrador\": \"false\",\n            \"_id\": \"4daFrPv7pIn7s7Di\"\n        },\n        {\n            \"nome\": \"Gwen Wintheiser\",\n            \"email\": \"Clovis_Gerlach@example.net\",\n            \"password\": \"0gPi_lsx\",\n            \"administrador\": \"false\",\n            \"_id\": \"4yvWAV5vnQSC4Doz\"\n        },\n        {\n            \"nome\": \"May Graham\",\n            \"email\": \"Rosanna23@example.net\",\n            \"password\": \"9sFaG4eA\",\n            \"administrador\": \"false\",\n            \"_id\": \"51JSeuKCQ62UA9J0\"\n        },\n        {\n            \"nome\": \"Ms. Shane Baumbach\",\n            \"email\": \"Jaden.Baumbach@example.org\",\n            \"password\": \"Y7Cqcrq0KGM\",\n            \"administrador\": \"true\",\n            \"_id\": \"7McRYSYmH7Y0vNC4\"\n        },\n        {\n            \"nome\": \"Elsie Collier\",\n            \"email\": \"Mafalda.Larson@example.com\",\n            \"password\": \"wjb2C7qh\",\n            \"administrador\": \"false\",\n            \"_id\": \"7cZQq0WsKHgVNfaK\"\n        },\n        {\n            \"nome\": \"Gina DuBuque\",\n            \"email\": \"Foster_Gleichner@example.org\",\n            \"password\": \"yGPyXQ57vUF\",\n            \"administrador\": \"false\",\n            \"_id\": \"7d0JTmvjZxxQkHh8\"\n        },\n        {\n            \"nome\": \"Miss Shelly Upton\",\n            \"email\": \"Deven13@example.net\",\n            \"password\": \"5Bk96s2j\",\n            \"administrador\": \"false\",\n            \"_id\": \"89duEPuj6mmqMYUU\"\n        },\n        {\n            \"nome\": \"Gretchen Walter\",\n            \"email\": \"Kiarra.Streich@example.com\",\n            \"password\": \"9m_ajUqL\",\n            \"administrador\": \"false\",\n            \"_id\": \"8DX91qsqkWeo93jl\"\n        },\n        {\n            \"nome\": \"Van Littel\",\n            \"email\": \"Annabel_Feest@example.org\",\n            \"password\": \"9sFaG4eA\",\n            \"administrador\": \"false\",\n            \"_id\": \"940V8NbpbdGlyQKM\"\n        },\n        {\n            \"nome\": \"Stewart Koelpin\",\n            \"email\": \"Paolo.Stoltenberg@example.com\",\n            \"password\": \"hVybqYUX\",\n            \"administrador\": \"false\",\n            \"_id\": \"A5iZylAiKXtdXVU5\"\n        },\n        {\n            \"nome\": \"Todd Yundt\",\n            \"email\": \"Aimee.Cronin14@example.org\",\n            \"password\": \"r17LZNiJ\",\n            \"administrador\": \"true\",\n            \"_id\": \"A8iKK6YCwg0xFbOh\"\n        },\n        {\n            \"nome\": \"Kerry Labadie Sr.\",\n            \"email\": \"Ettie_Hettinger@example.net\",\n            \"password\": \"9sFaG4eA\",\n            \"administrador\": \"false\",\n            \"_id\": \"ARgEHncVYXzamGOW\"\n        },\n        {\n            \"nome\": \"Shannon Towne\",\n            \"email\": \"Kelley_Pfannerstill@example.org\",\n            \"password\": \"co_XyDjYAT_\",\n            \"administrador\": \"false\",\n            \"_id\": \"AyoCxlWwQoH66WpK\"\n        },\n        {\n            \"nome\": \"Myra Feil\",\n            \"email\": \"Bethany49@example.net\",\n            \"password\": \"9sFaG4eA\",\n            \"administrador\": \"false\",\n            \"_id\": \"BDwCdVUkR1kG1j1z\"\n        },\n        {\n            \"nome\": \"Katherine Quigley\",\n            \"email\": \"Camron.Lueilwitz61@example.org\",\n            \"password\": \"9m_ajUqL\",\n            \"administrador\": \"false\",\n            \"_id\": \"BbIV560J88dWRuXa\"\n        },\n        {\n            \"nome\": \"Roy Koelpin\",\n            \"email\": \"Aurelia_Daniel@example.org\",\n            \"password\": \"9m_ajUqL\",\n            \"administrador\": \"false\",\n            \"_id\": \"CNkdgTgoybvcvX0I\"\n        },\n        {\n            \"nome\": \"Ross McCullough\",\n            \"email\": \"Conor.Kuphal@example.org\",\n            \"password\": \"hVybqYUX\",\n            \"administrador\": \"false\",\n            \"_id\": \"CwnVxOKvg5c3aDiN\"\n        },\n        {\n            \"nome\": \"Joanne Hayes\",\n            \"email\": \"Gay_Muller@example.com\",\n            \"password\": \"snvvlpfJ\",\n            \"administrador\": \"false\",\n            \"_id\": \"D2EsT5Q1cMWO7cqs\"\n        },\n        {\n            \"nome\": \"Kendra Daniel\",\n            \"email\": \"Dangelo37@example.org\",\n            \"password\": \"kUAf86Ug\",\n            \"administrador\": \"false\",\n            \"_id\": \"Dd1kgNFGHJClBIo0\"\n        },\n        {\n            \"nome\": \"Nora Kreiger\",\n            \"email\": \"Porter.Ratke30@gmail.com\",\n            \"password\": \"51RAcTFd\",\n            \"administrador\": \"true\",\n            \"_id\": \"EWJfLvJscJUNdzUn\"\n        },\n        {\n            \"nome\": \"Leroy Hahn\",\n            \"email\": \"Madonna_Ruecker64@example.com\",\n            \"password\": \"f_xvkBJfZvw\",\n            \"administrador\": \"true\",\n            \"_id\": \"EgVubt8xQIVye6ZR\"\n        },\n        {\n            \"nome\": \"Jerome Ferry\",\n            \"email\": \"Destin63@hotmail.com\",\n            \"password\": \"7ge1EDji\",\n            \"administrador\": \"false\",\n            \"_id\": \"EiJI9umFdHN0axqe\"\n        },\n        {\n            \"nome\": \"Betty Jacobi\",\n            \"email\": \"Emilio.Davis@hotmail.com\",\n            \"password\": \"NC9JuVpL\",\n            \"administrador\": \"true\",\n            \"_id\": \"ElNP8owSh8tfw7Ze\"\n        },\n        {\n            \"nome\": \"Bertha O'Keefe\",\n            \"email\": \"Mae.Lubowitz38@example.org\",\n            \"password\": \"ywTbjjeu\",\n            \"administrador\": \"false\",\n            \"_id\": \"EmCIrgwo9S5sTbTm\"\n        },\n        {\n            \"nome\": \"Dominic Murazik DDS\",\n            \"email\": \"Destiney_Bogisich68@example.org\",\n            \"password\": \"WRUs\",\n            \"administrador\": \"false\",\n            \"_id\": \"EmhDzSt08Jy4hDwY\"\n        },\n        {\n            \"nome\": \"Miss Jessica Toy\",\n            \"email\": \"Rodolfo.Hudson84@example.com\",\n            \"password\": \"9sFaG4eA\",\n            \"administrador\": \"false\",\n            \"_id\": \"ErM5utPn24OOYJJY\"\n        },\n        {\n            \"nome\": \"Gretchen Kuphal\",\n            \"email\": \"Myriam_Nienow4@example.org\",\n            \"password\": \"ek8Hrqgp\",\n            \"administrador\": \"false\",\n            \"_id\": \"F2VwOo6MVqKqm3gT\"\n        },\n        {\n            \"nome\": \"Don Auer DDS\",\n            \"email\": \"Michaela.Stiedemann88@example.org\",\n            \"password\": \"STgWPwJh\",\n            \"administrador\": \"false\",\n            \"_id\": \"FticRElbZNvu9qxX\"\n        },\n        {\n            \"nome\": \"Jana Von\",\n            \"email\": \"Bryce41@example.net\",\n            \"password\": \"9m_ajUqL\",\n            \"administrador\": \"false\",\n            \"_id\": \"FvNKQ7WP52VG4F1S\"\n        },\n        {\n            \"nome\": \"Marguerite Mante\",\n            \"email\": \"Darrell_Paucek@example.org\",\n            \"password\": \"n68Vvshy\",\n            \"administrador\": \"false\",\n            \"_id\": \"G5BPA25DXT4M6wPA\"\n        },\n        {\n            \"nome\": \"Marcos Dibbert\",\n            \"email\": \"Keagan77@example.org\",\n            \"password\": \"hVybqYUX\",\n            \"administrador\": \"false\",\n            \"_id\": \"HPWoiBO1VtpzbnNF\"\n        },\n        {\n            \"nome\": \"Jorge Frami\",\n            \"email\": \"Keegan91@example.net\",\n            \"password\": \"45SNNWcA\",\n            \"administrador\": \"false\",\n            \"_id\": \"IW0Wf4IdWMHkHn5N\"\n        },\n        {\n            \"nome\": \"Mrs. Ramiro Treutel\",\n            \"email\": \"Mireille39@example.org\",\n            \"password\": \"ejuR\",\n            \"administrador\": \"true\",\n            \"_id\": \"IZh08xjHxuzxwYkX\"\n        },\n        {\n            \"nome\": \"Martha Corwin\",\n            \"email\": \"Celestine76@example.net\",\n            \"password\": \"9sFaG4eA\",\n            \"administrador\": \"false\",\n            \"_id\": \"Iavfh3TfVNoBuRbN\"\n        },\n        {\n            \"nome\": \"Miss Todd Lebsack\",\n            \"email\": \"Regan.Kuhlman@example.net\",\n            \"password\": \"qtc7_FZ_\",\n            \"administrador\": \"false\",\n            \"_id\": \"Ii4I9IQRvToupvdZ\"\n        },\n        {\n            \"nome\": \"Tomas Stanton\",\n            \"email\": \"Katheryn32@example.org\",\n            \"password\": \"9sFaG4eA\",\n            \"administrador\": \"false\",\n            \"_id\": \"ItV3rGlyTLSQPlwE\"\n        },\n        {\n            \"nome\": \"Erma Brown\",\n            \"email\": \"Carlos22@example.com\",\n            \"password\": \"67ih9F_4X2Q\",\n            \"administrador\": \"false\",\n            \"_id\": \"J5wsESx1xp7asmrY\"\n        },\n        {\n            \"nome\": \"Dr. Lorenzo Ruecker\",\n            \"email\": \"Cleora_Muller51@example.com\",\n            \"password\": \"9sFaG4eA\",\n            \"administrador\": \"false\",\n            \"_id\": \"JLbHzzrPmhHPCZ68\"\n        },\n        {\n            \"nome\": \"Rufus Ullrich\",\n            \"email\": \"Elisa31@example.com\",\n            \"password\": \"9sFaG4eA\",\n            \"administrador\": \"false\",\n            \"_id\": \"JjdR4g7P1ntH68zR\"\n        },\n        {\n            \"nome\": \"Danielle Crona III\",\n            \"email\": \"Clint80@example.net\",\n            \"password\": \"9sFaG4eA\",\n            \"administrador\": \"false\",\n            \"_id\": \"KwukliTj9FMROMyt\"\n        },\n        {\n            \"nome\": \"Julius Waelchi\",\n            \"email\": \"Janae.Doyle20@gmail.com\",\n            \"password\": \"ABP9PAWF\",\n            \"administrador\": \"true\",\n            \"_id\": \"L0MpgoPYzQbHFmGA\"\n        },\n        {\n            \"nome\": \"Wendy Schowalter\",\n            \"email\": \"Collin.Weber@example.org\",\n            \"password\": \"p5rGqiRj\",\n            \"administrador\": \"false\",\n            \"_id\": \"L3sNwUw4j9nFNWsK\"\n        },\n        {\n            \"nome\": \"Mr. Alfred Champlin\",\n            \"email\": \"Oceane54@example.net\",\n            \"password\": \"9sFaG4eA\",\n            \"administrador\": \"false\",\n            \"_id\": \"L8hfdQskRzJxNl3r\"\n        },\n        {\n            \"nome\": \"Naomi Reinger\",\n            \"email\": \"Frances_Kassulke@example.com\",\n            \"password\": \"9m_ajUqL\",\n            \"administrador\": \"false\",\n            \"_id\": \"LUuoQ1bS9yj6OOX5\"\n        },\n        {\n            \"nome\": \"Shawn Murazik\",\n            \"email\": \"Ellis57@gmail.com\",\n            \"password\": \"FsnHPAoH\",\n            \"administrador\": \"false\",\n            \"_id\": \"Lrm3YWXorg7YByEk\"\n        },\n        {\n            \"nome\": \"Samantha Schuster\",\n            \"email\": \"Sasha.Simonis@example.org\",\n            \"password\": \"kRQDTd2t\",\n            \"administrador\": \"false\",\n            \"_id\": \"M806pqbu0GJls7UL\"\n        },\n        {\n            \"nome\": \"Pablo Mertz\",\n            \"email\": \"Asia8@example.net\",\n            \"password\": \"hVybqYUX\",\n            \"administrador\": \"false\",\n            \"_id\": \"MUk5eWSSq6hkt4L5\"\n        },\n        {\n            \"nome\": \"Lucy Walker\",\n            \"email\": \"Carmen.Casper@example.net\",\n            \"password\": \"hpXS\",\n            \"administrador\": \"false\",\n            \"_id\": \"MnCKC5AZcP2l3o9o\"\n        },\n        {\n            \"nome\": \"Peter Ledner V\",\n            \"email\": \"Kailyn_Hayes94@example.org\",\n            \"password\": \"DznKt0UyMoV\",\n            \"administrador\": \"true\",\n            \"_id\": \"NmAKimrCoBTTeO1n\"\n        },\n        {\n            \"nome\": \"Shirley Dach\",\n            \"email\": \"Jacynthe_Stiedemann78@example.org\",\n            \"password\": \"P8YXbSLi\",\n            \"administrador\": \"false\",\n            \"_id\": \"NpBGlOC7zoBrlvWL\"\n        },\n        {\n            \"nome\": \"Francis Dooley\",\n            \"email\": \"Cameron.Abbott@example.org\",\n            \"password\": \"MVPHoJux\",\n            \"administrador\": \"false\",\n            \"_id\": \"O12xF9WXMPi8in0x\"\n        },\n        {\n            \"nome\": \"Eula Terry\",\n            \"email\": \"Ena_Schamberger38@example.com\",\n            \"password\": \"hVybqYUX\",\n            \"administrador\": \"false\",\n            \"_id\": \"OQ3lEXWFZTOeC1Zs\"\n        },\n        {\n            \"nome\": \"Mrs. Geraldine Crist\",\n            \"email\": \"Jammie_Wilderman@hotmail.com\",\n            \"password\": \"7emLc7sF\",\n            \"administrador\": \"true\",\n            \"_id\": \"OtqgEb5Uy4uGTVjW\"\n        },\n        {\n            \"nome\": \"Dr. Geneva Heathcote\",\n            \"email\": \"Andre_Gusikowski@hotmail.com\",\n            \"password\": \"RAn_wn4e\",\n            \"administrador\": \"true\",\n            \"_id\": \"PIbftB1uIW78rQxt\"\n        },\n        {\n            \"nome\": \"Essie Lemke MD\",\n            \"email\": \"Brionna_Vandervort93@example.com\",\n            \"password\": \"9m_ajUqL\",\n            \"administrador\": \"false\",\n            \"_id\": \"PUU4asgb4bkr51As\"\n        },\n        {\n            \"nome\": \"Hugh Gusikowski\",\n            \"email\": \"Trent_Hansen@example.net\",\n            \"password\": \"9sFaG4eA\",\n            \"administrador\": \"false\",\n            \"_id\": \"Pas2ORmEuadj4KBY\"\n        },\n        {\n            \"nome\": \"Dr. Gwen DuBuque\",\n            \"email\": \"Veda94@example.org\",\n            \"password\": \"9m_ajUqL\",\n            \"administrador\": \"false\",\n            \"_id\": \"QU5kj2p9fyBnXyQ9\"\n        },\n        {\n            \"nome\": \"Jamie Erdman\",\n            \"email\": \"Juliet80@example.net\",\n            \"password\": \"egw7Xh3d\",\n            \"administrador\": \"true\",\n            \"_id\": \"U2Pvj1ZC0Aj9Pox3\"\n        },\n        {\n            \"nome\": \"Muriel Schaefer\",\n            \"email\": \"Ashleigh_Mann81@example.com\",\n            \"password\": \"wgxn8EyW\",\n            \"administrador\": \"false\",\n            \"_id\": \"U5nMolVHuFBCvMZi\"\n        },\n        {\n            \"nome\": \"Bennie Gutkowski\",\n            \"email\": \"Mya_Borer17@gmail.com\",\n            \"password\": \"gaENjcoe\",\n            \"administrador\": \"false\",\n            \"_id\": \"UWtD37vS3SxHbkqk\"\n        },\n        {\n            \"nome\": \"Miss Barry Huels\",\n            \"email\": \"Vicenta.Bruen@example.net\",\n            \"password\": \"9m_ajUqL\",\n            \"administrador\": \"false\",\n            \"_id\": \"UZM54e0Oj1gB3ggF\"\n        },\n        {\n            \"nome\": \"Ms. Tina Little\",\n            \"email\": \"Maeve_Kuhlman3@example.net\",\n            \"password\": \"9sFaG4eA\",\n            \"administrador\": \"false\",\n            \"_id\": \"UrdK3Or0HqgM3jJd\"\n        },\n        {\n            \"nome\": \"Mrs. Adam Berge\",\n            \"email\": \"Carter_Becker@gmail.com\",\n            \"password\": \"UdYcD5VP\",\n            \"administrador\": \"true\",\n            \"_id\": \"VAUneKQmU9HlMZhP\"\n        },\n        {\n            \"nome\": \"Lewis Gerhold\",\n            \"email\": \"Lucius_Runolfsson@hotmail.com\",\n            \"password\": \"DyT4Qn_b\",\n            \"administrador\": \"true\",\n            \"_id\": \"VGtZNecfNFXkbpsR\"\n        },\n        {\n            \"nome\": \"Rene Cassin\",\n            \"email\": \"Ronny.Waters96@example.com\",\n            \"password\": \"hVybqYUX\",\n            \"administrador\": \"false\",\n            \"_id\": \"W8dCohjvSgDiu3gX\"\n        },\n        {\n            \"nome\": \"Wendy Abshire\",\n            \"email\": \"Kelley10@example.com\",\n            \"password\": \"5uJy9omJ\",\n            \"administrador\": \"false\",\n            \"_id\": \"X8cF83k3Y9L13MpC\"\n        },\n        {\n            \"nome\": \"Dr. Wendell White\",\n            \"email\": \"Ted_Carroll@example.com\",\n            \"password\": \"zQfnIncU\",\n            \"administrador\": \"false\",\n            \"_id\": \"Y37V8472ScQkwqqm\"\n        },\n        {\n            \"nome\": \"Mr. Willie Rosenbaum\",\n            \"email\": \"Anibal.Shanahan91@example.org\",\n            \"password\": \"H8Bg\",\n            \"administrador\": \"true\",\n            \"_id\": \"Y7zLXi8me4u7OaTm\"\n        },\n        {\n            \"nome\": \"Ryan Baumbach\",\n            \"email\": \"Margarete.Shanahan80@example.net\",\n            \"password\": \"7sjXLAsN\",\n            \"administrador\": \"false\",\n            \"_id\": \"Z56ww6cIYB6I4jQk\"\n        },\n        {\n            \"nome\": \"Willis DuBuque\",\n            \"email\": \"Annalise_Volkman@example.org\",\n            \"password\": \"9m_ajUqL\",\n            \"administrador\": \"false\",\n            \"_id\": \"ZLFTYCdwKXlfHaj7\"\n        },\n        {\n            \"nome\": \"Darrin Conn\",\n            \"email\": \"Maurice_Walker@example.com\",\n            \"password\": \"9m_ajUqL\",\n            \"administrador\": \"false\",\n            \"_id\": \"aHuLo409Ep0XK7Yk\"\n        },\n        {\n            \"nome\": \"Andy Effertz\",\n            \"email\": \"Rubie58@example.org\",\n            \"password\": \"9sFaG4eA\",\n            \"administrador\": \"false\",\n            \"_id\": \"auSfW3mG1yZ1bTSl\"\n        },\n        {\n            \"nome\": \"Miss Kelli Reinger\",\n            \"email\": \"Mike39@example.org\",\n            \"password\": \"2fbjga_z5p2\",\n            \"administrador\": \"false\",\n            \"_id\": \"azvjxdGx8wmEzqGM\"\n        },\n        {\n            \"nome\": \"Dr. Morris McCullough\",\n            \"email\": \"Donny.Wolff@hotmail.com\",\n            \"password\": \"Jepz_HDq\",\n            \"administrador\": \"false\",\n            \"_id\": \"bIPUKCDT1Xy3x7bN\"\n        },\n        {\n            \"nome\": \"Janis Hegmann\",\n            \"email\": \"Alexzander_Yundt@example.com\",\n            \"password\": \"9m_ajUqL\",\n            \"administrador\": \"false\",\n            \"_id\": \"bNaM2coTIHlIHovQ\"\n        },\n        {\n            \"nome\": \"Caleb McClure\",\n            \"email\": \"Brooks79@example.net\",\n            \"password\": \"lJo9CjKK\",\n            \"administrador\": \"true\",\n            \"_id\": \"bRBiWI9On3cLwFli\"\n        },\n        {\n            \"nome\": \"Mercedes Ortiz\",\n            \"email\": \"Gilbert_Marvin@example.org\",\n            \"password\": \"7AHV\",\n            \"administrador\": \"true\",\n            \"_id\": \"bXQp6fDQHNxDN5IY\"\n        },\n        {\n            \"nome\": \"Mandy Dietrich\",\n            \"email\": \"Freddie.Deckow70@example.com\",\n            \"password\": \"zbeV\",\n            \"administrador\": \"false\",\n            \"_id\": \"cI1O9MCjTgUeeJyG\"\n        },\n        {\n            \"nome\": \"Henry Hahn\",\n            \"email\": \"Hellen.Klocko24@example.com\",\n            \"password\": \"hVybqYUX\",\n            \"administrador\": \"false\",\n            \"_id\": \"cJgx6uPgrCQQaWwi\"\n        },\n        {\n            \"nome\": \"Troy Boyle\",\n            \"email\": \"Zion.Donnelly@hotmail.com\",\n            \"password\": \"zpkfbXS_\",\n            \"administrador\": \"false\",\n            \"_id\": \"cSHX0ssXbs7aZEAy\"\n        },\n        {\n            \"nome\": \"Tony Renner\",\n            \"email\": \"Neva.Hagenes72@example.com\",\n            \"password\": \"9m_ajUqL\",\n            \"administrador\": \"false\",\n            \"_id\": \"d5Mj8cCd3vKbA0r4\"\n        },\n        {\n            \"nome\": \"Rebecca Crist\",\n            \"email\": \"Janessa59@example.org\",\n            \"password\": \"uiLz3hPI\",\n            \"administrador\": \"true\",\n            \"_id\": \"dDxdsgOi2AOHPvaB\"\n        },\n        {\n            \"nome\": \"Christopher Treutel V\",\n            \"email\": \"Desiree.Simonis@example.net\",\n            \"password\": \"hVybqYUX\",\n            \"administrador\": \"false\",\n            \"_id\": \"dLqMLPNZ9Vg6by84\"\n        },\n        {\n            \"nome\": \"Ben Runte\",\n            \"email\": \"Gilbert.Schinner@example.com\",\n            \"password\": \"hVybqYUX\",\n            \"administrador\": \"false\",\n            \"_id\": \"dZLoo7uTf9tMETY9\"\n        },\n        {\n            \"nome\": \"Lorraine Kertzmann\",\n            \"email\": \"Myra_Swaniawski99@example.com\",\n            \"password\": \"hVybqYUX\",\n            \"administrador\": \"false\",\n            \"_id\": \"eE2iDC6W28hu85q6\"\n        },\n        {\n            \"nome\": \"Maureen Lowe\",\n            \"email\": \"Eliezer_Kuvalis@example.com\",\n            \"password\": \"hVybqYUX\",\n            \"administrador\": \"false\",\n            \"_id\": \"eM5tiQzVg1sfFSrY\"\n        },\n        {\n            \"nome\": \"Dr. Alvin Durgan\",\n            \"email\": \"Claude25@example.net\",\n            \"password\": \"9m_ajUqL\",\n            \"administrador\": \"false\",\n            \"_id\": \"ep1wcDupPjoolpHZ\"\n        },\n        {\n            \"nome\": \"Luther Dickens\",\n            \"email\": \"Soledad44@hotmail.com\",\n            \"password\": \"YBaf1i0h\",\n            \"administrador\": \"false\",\n            \"_id\": \"fYcP0J1WDH99e8uR\"\n        },\n        {\n            \"nome\": \"Muriel Cummings\",\n            \"email\": \"Kaleb_Harvey79@example.net\",\n            \"password\": \"9sFaG4eA\",\n            \"administrador\": \"false\",\n            \"_id\": \"g8XBm2rRep2kS45e\"\n        },\n        {\n            \"nome\": \"Brett Deckow\",\n            \"email\": \"Zola_Padberg@example.org\",\n            \"password\": \"NEKbS5sXBup\",\n            \"administrador\": \"true\",\n            \"_id\": \"gONF8djvApD8vCZ4\"\n        },\n        {\n            \"nome\": \"Dr. Sylvia Wiegand\",\n            \"email\": \"Jaydon82@example.net\",\n            \"password\": \"MCvgKoRd\",\n            \"administrador\": \"false\",\n            \"_id\": \"gaqbhSiJAmeUnBbF\"\n        },\n        {\n            \"nome\": \"Gregory Rolfson IV\",\n            \"email\": \"Andrew69@example.org\",\n            \"password\": \"hVybqYUX\",\n            \"administrador\": \"false\",\n            \"_id\": \"h12YWqDwS7NgAo1A\"\n        },\n        {\n            \"nome\": \"Timmy Smitham\",\n            \"email\": \"Ubaldo49@example.org\",\n            \"password\": \"9sFaG4eA\",\n            \"administrador\": \"false\",\n            \"_id\": \"hKpHYfb8PN3D1UQ5\"\n        },\n        {\n            \"nome\": \"Kelvin Runte\",\n            \"email\": \"Henderson71@example.org\",\n            \"password\": \"HRJoNaRn\",\n            \"administrador\": \"false\",\n            \"_id\": \"hLURibhhdhboXIhJ\"\n        },\n        {\n            \"nome\": \"Orville Crona\",\n            \"email\": \"Emory.Gaylord4@example.net\",\n            \"password\": \"hVybqYUX\",\n            \"administrador\": \"false\",\n            \"_id\": \"hY9hmPWRztECCXGB\"\n        },\n        {\n            \"nome\": \"Lamar Haley\",\n            \"email\": \"Javier.Hills82@example.net\",\n            \"password\": \"LDQq0Ccz\",\n            \"administrador\": \"false\",\n            \"_id\": \"hZAOy51e9FWhwboF\"\n        },\n        {\n            \"nome\": \"Alma McDermott\",\n            \"email\": \"Colt.Jacobs62@example.com\",\n            \"password\": \"bxZaydZX\",\n            \"administrador\": \"true\",\n            \"_id\": \"hwI7ESsiMi0EndUD\"\n        },\n        {\n            \"nome\": \"Antoinette Crist\",\n            \"email\": \"Anne_Rutherford46@example.net\",\n            \"password\": \"SmkfKZvs\",\n            \"administrador\": \"false\",\n            \"_id\": \"jSd5aG5y3PKCJsOb\"\n        },\n        {\n            \"nome\": \"Jeanne Rowe\",\n            \"email\": \"Sunny85@hotmail.com\",\n            \"password\": \"LnTloNOe\",\n            \"administrador\": \"true\",\n            \"_id\": \"jddITj5Q0mg5nypN\"\n        },\n        {\n            \"nome\": \"Wilfred Leuschke\",\n            \"email\": \"Chelsie.Thiel28@example.net\",\n            \"password\": \"hVybqYUX\",\n            \"administrador\": \"false\",\n            \"_id\": \"jmRnSq0aJ73LqjTJ\"\n        },\n        {\n            \"nome\": \"Ramon Lueilwitz\",\n            \"email\": \"Brook.Homenick16@example.com\",\n            \"password\": \"9gLZfUeL\",\n            \"administrador\": \"false\",\n            \"_id\": \"kn8tJhVeZW9OmnuZ\"\n        },\n        {\n            \"nome\": \"Moses Sawayn\",\n            \"email\": \"Lambert.Flatley@gmail.com\",\n            \"password\": \"NMSDKonf\",\n            \"administrador\": \"true\",\n            \"_id\": \"lqQ6gDcheBGDORsl\"\n        },\n        {\n            \"nome\": \"Debra Greenholt\",\n            \"email\": \"Sarai_Huels@example.org\",\n            \"password\": \"9m_ajUqL\",\n            \"administrador\": \"false\",\n            \"_id\": \"mIoSLuQ4SqK7Szde\"\n        },\n        {\n            \"nome\": \"Irving Wolf\",\n            \"email\": \"Hoyt9@example.net\",\n            \"password\": \"qYB42nYt\",\n            \"administrador\": \"false\",\n            \"_id\": \"meY8ltBbMFOEj6Sq\"\n        },\n        {\n            \"nome\": \"Whitney Deckow\",\n            \"email\": \"Sigmund_Hills86@example.org\",\n            \"password\": \"l49pNhB4\",\n            \"administrador\": \"false\",\n            \"_id\": \"muj5pt7GHqT1VVU5\"\n        },\n        {\n            \"nome\": \"Wilbur Morar IV\",\n            \"email\": \"Rupert43@example.org\",\n            \"password\": \"hVybqYUX\",\n            \"administrador\": \"false\",\n            \"_id\": \"nBkMzXL8zluztfxr\"\n        },\n        {\n            \"nome\": \"Kristopher Sipes\",\n            \"email\": \"Alexandrine83@example.org\",\n            \"password\": \"MRhCSm9F\",\n            \"administrador\": \"true\",\n            \"_id\": \"oDxXTCLfV7jdMPJY\"\n        },\n        {\n            \"nome\": \"Mitchell Zulauf\",\n            \"email\": \"Virginia.Breitenberg@example.net\",\n            \"password\": \"ga3V31DC\",\n            \"administrador\": \"false\",\n            \"_id\": \"ozxVzojlGW9HZGC0\"\n        },\n        {\n            \"nome\": \"Krystal Bartell\",\n            \"email\": \"Isabel67@example.com\",\n            \"password\": \"eXGSqIrW\",\n            \"administrador\": \"true\",\n            \"_id\": \"p4af5i0jthlI4QWN\"\n        },\n        {\n            \"nome\": \"Aaron Tillman\",\n            \"email\": \"Leonel50@gmail.com\",\n            \"password\": \"FcjIKXr4\",\n            \"administrador\": \"false\",\n            \"_id\": \"qC1Bmhu34JytkTO7\"\n        },\n        {\n            \"nome\": \"Mr. Spencer Schultz\",\n            \"email\": \"Cloyd_Pagac@example.com\",\n            \"password\": \"9sFaG4eA\",\n            \"administrador\": \"false\",\n            \"_id\": \"r0LY83ymAE6SDItX\"\n        },\n        {\n            \"nome\": \"Gerardo Kub\",\n            \"email\": \"Fritz95@example.com\",\n            \"password\": \"9m_ajUqL\",\n            \"administrador\": \"false\",\n            \"_id\": \"rWCL3g4MX7InCDAK\"\n        },\n        {\n            \"nome\": \"Nora Haag\",\n            \"email\": \"Edwin_Simonis@example.org\",\n            \"password\": \"5bzj245Z\",\n            \"administrador\": \"false\",\n            \"_id\": \"rd5fXmpp4NqlrTqZ\"\n        },\n        {\n            \"nome\": \"Christian Auer\",\n            \"email\": \"Carmela.Waters77@gmail.com\",\n            \"password\": \"3SGiWMIM\",\n            \"administrador\": \"true\",\n            \"_id\": \"rqX30qmva5zsut2O\"\n        },\n        {\n            \"nome\": \"Beth Kerluke\",\n            \"email\": \"Emelie_Feeney22@example.org\",\n            \"password\": \"hVybqYUX\",\n            \"administrador\": \"false\",\n            \"_id\": \"sPyjtNDv8MiQHiHv\"\n        },\n        {\n            \"nome\": \"Alfredo Paucek\",\n            \"email\": \"Russell96@example.net\",\n            \"password\": \"UFdiSz8x\",\n            \"administrador\": \"true\",\n            \"_id\": \"tYf38AhjpBDS9VGH\"\n        },\n        {\n            \"nome\": \"Dr. Claude Mayer\",\n            \"email\": \"Lamar.Bergstrom15@example.org\",\n            \"password\": \"kxcMFXN2\",\n            \"administrador\": \"false\",\n            \"_id\": \"tvWcBtqGzw62k4fe\"\n        },\n        {\n            \"nome\": \"Mr. Cassandra Tremblay\",\n            \"email\": \"Floy.Little82@example.net\",\n            \"password\": \"EFMNXThh\",\n            \"administrador\": \"false\",\n            \"_id\": \"uA0ztecKHdAMo3Ru\"\n        },\n        {\n            \"nome\": \"Nadine Tromp\",\n            \"email\": \"Hollis_Schneider@example.com\",\n            \"password\": \"qwH_xviD_IU\",\n            \"administrador\": \"true\",\n            \"_id\": \"uNeOfVzdKOiXPb3n\"\n        },\n        {\n            \"nome\": \"Rose Leannon Sr.\",\n            \"email\": \"Miles19@example.net\",\n            \"password\": \"9sFaG4eA\",\n            \"administrador\": \"false\",\n            \"_id\": \"uWg1Gzgo9rh5DMsI\"\n        },\n        {\n            \"nome\": \"Bradley Pacocha\",\n            \"email\": \"Taylor37@gmail.com\",\n            \"password\": \"J0UhMwMm\",\n            \"administrador\": \"true\",\n            \"_id\": \"ulcEn6Ny3a3soA03\"\n        },\n        {\n            \"nome\": \"Merle Kilback\",\n            \"email\": \"Maeve_Reichel47@example.com\",\n            \"password\": \"9m_ajUqL\",\n            \"administrador\": \"false\",\n            \"_id\": \"utAy9tyeOZTE633o\"\n        },\n        {\n            \"nome\": \"Maryann Harvey\",\n            \"email\": \"Avery11@example.com\",\n            \"password\": \"_Ow2_lfp\",\n            \"administrador\": \"false\",\n            \"_id\": \"vBb5vZfh59mUEUiJ\"\n        },\n        {\n            \"nome\": \"Grace Emard\",\n            \"email\": \"Keeley_Mitchell11@example.net\",\n            \"password\": \"9m_ajUqL\",\n            \"administrador\": \"false\",\n            \"_id\": \"vDY9nacjsKReZqON\"\n        },\n        {\n            \"nome\": \"Ginger Reinger\",\n            \"email\": \"Gabrielle15@example.com\",\n            \"password\": \"nGBFDggTO4q\",\n            \"administrador\": \"false\",\n            \"_id\": \"vIVPMitSeIDMLbKq\"\n        },\n        {\n            \"nome\": \"Ralph Pfannerstill\",\n            \"email\": \"Kailey46@gmail.com\",\n            \"password\": \"f8uxpJZP\",\n            \"administrador\": \"false\",\n            \"_id\": \"wlBrAcMaiCi1SKRK\"\n        },\n        {\n            \"nome\": \"Darin O'Kon\",\n            \"email\": \"Columbus.Farrell97@example.com\",\n            \"password\": \"eLJijot_\",\n            \"administrador\": \"true\",\n            \"_id\": \"x9QYMHkteoVL8D16\"\n        },\n        {\n            \"nome\": \"Kristine Nienow\",\n            \"email\": \"Carey.Schamberger25@example.net\",\n            \"password\": \"OzZYtss9\",\n            \"administrador\": \"true\",\n            \"_id\": \"xPEyXQS8gTe3U0lk\"\n        },\n        {\n            \"nome\": \"Winston Walsh Jr.\",\n            \"email\": \"Reagan7@example.org\",\n            \"password\": \"9sFaG4eA\",\n            \"administrador\": \"false\",\n            \"_id\": \"xRkKba2TdXsxIA9D\"\n        },\n        {\n            \"nome\": \"Janis Yost\",\n            \"email\": \"Dudley_Daugherty@example.net\",\n            \"password\": \"7mmXpBxF\",\n            \"administrador\": \"false\",\n            \"_id\": \"xXogt5q2kmJG4o2I\"\n        },\n        {\n            \"nome\": \"Ebony Stehr\",\n            \"email\": \"Abdullah.Gottlieb@example.org\",\n            \"password\": \"Oqr6AQGD\",\n            \"administrador\": \"false\",\n            \"_id\": \"xaoxJ5clCJjxvw0Y\"\n        },\n        {\n            \"nome\": \"Brett Wiegand\",\n            \"email\": \"Daija_Botsford@example.org\",\n            \"password\": \"hVybqYUX\",\n            \"administrador\": \"false\",\n            \"_id\": \"xb6bmmU8DUqbP94N\"\n        },\n        {\n            \"nome\": \"Chad Greenfelder\",\n            \"email\": \"Oceane16@gmail.com\",\n            \"password\": \"5PUNzTK8\",\n            \"administrador\": \"false\",\n            \"_id\": \"y1tLYJryHd5fpGiL\"\n        },\n        {\n            \"nome\": \"Erick Sawayn\",\n            \"email\": \"Javonte41@example.org\",\n            \"password\": \"9m_ajUqL\",\n            \"administrador\": \"false\",\n            \"_id\": \"y6ok5LnKawbBQJFe\"\n        },\n        {\n            \"nome\": \"Vera Prosacco\",\n            \"email\": \"Kolby_Waelchi34@example.net\",\n            \"password\": \"7dOUOGiv\",\n            \"administrador\": \"false\",\n            \"_id\": \"yNtgXSRcrOUkXdDw\"\n        },\n        {\n            \"nome\": \"Everett Abbott MD\",\n            \"email\": \"Emie31@example.org\",\n            \"password\": \"QsEiY9TT\",\n            \"administrador\": \"false\",\n            \"_id\": \"ySpUAPGBDyHrqMHl\"\n        },\n        {\n            \"nome\": \"Nathaniel Davis\",\n            \"email\": \"Emanuel85@example.net\",\n            \"password\": \"CpBKnTfq\",\n            \"administrador\": \"true\",\n            \"_id\": \"zWHYq9LEqrvFXAci\"\n        },\n        {\n            \"nome\": \"Sherman Ankunding\",\n            \"email\": \"Leonie41@hotmail.com\",\n            \"password\": \"oMmJk6Lb\",\n            \"administrador\": \"false\",\n            \"_id\": \"zfq0T0QXGOlIys4Q\"\n        }\n    ]\n}"
+								}
+							]
 						}
 					]
 				},
@@ -655,6 +1246,39 @@
 												],
 												"type": "text/javascript"
 											}
+										},
+										{
+											"listen": "prerequest",
+											"script": {
+												"exec": [
+													"const name = pm.variables.replaceIn('{{$randomFullName}}');\r",
+													"pm.collectionVariables.set(\"randomName\", name);\r",
+													"const email = pm.variables.replaceIn('{{$randomExampleEmail}}');\r",
+													"pm.collectionVariables.set(\"randomEmail\", email);\r",
+													"\r",
+													"pm.sendRequest({\r",
+													"    url: pm.environment.get('baseUrl') + '/usuarios',\r",
+													"    method: 'POST',\r",
+													"    header: {\r",
+													"        'Accept': 'application/json',\r",
+													"        'Content-Type': 'application/json'\r",
+													"      },\r",
+													"    body: {\r",
+													"        mode: 'raw',\r",
+													"        raw: JSON.stringify({\r",
+													"            \"nome\": pm.collectionVariables.get('randomName'),\r",
+													"            \"email\": pm.collectionVariables.get('randomEmail'),\r",
+													"            \"password\": pm.collectionVariables.get('validPassword'),\r",
+													"            \"administrador\": \"false\"\r",
+													"        })\r",
+													"    }\r",
+													"}, function (err, res) {\r",
+													"    pm.collectionVariables.set(\"newUserId\", res.json()._id);\r",
+													"});\r",
+													""
+												],
+												"type": "text/javascript"
+											}
 										}
 									],
 									"request": {
@@ -677,7 +1301,90 @@
 											]
 										}
 									},
-									"response": []
+									"response": [
+										{
+											"name": "Buscar usuário válido",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/usuarios/:_id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"usuarios",
+														":_id"
+													],
+													"variable": [
+														{
+															"key": "_id",
+															"value": "{{newUserId}}"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Access-Control-Allow-Origin",
+													"value": "*"
+												},
+												{
+													"key": "x-dns-prefetch-control",
+													"value": "off"
+												},
+												{
+													"key": "x-frame-options",
+													"value": "SAMEORIGIN"
+												},
+												{
+													"key": "strict-transport-security",
+													"value": "max-age=15552000; includeSubDomains"
+												},
+												{
+													"key": "x-download-options",
+													"value": "noopen"
+												},
+												{
+													"key": "x-content-type-options",
+													"value": "nosniff"
+												},
+												{
+													"key": "x-xss-protection",
+													"value": "1; mode=block"
+												},
+												{
+													"key": "x-moesif-transaction-id",
+													"value": "4c17c3a0-6cc2-4371-9b53-f894a5478269"
+												},
+												{
+													"key": "Content-Type",
+													"value": "application/json; charset=utf-8"
+												},
+												{
+													"key": "Content-Length",
+													"value": "164"
+												},
+												{
+													"key": "Date",
+													"value": "Fri, 06 Oct 2023 18:51:15 GMT"
+												},
+												{
+													"key": "Connection",
+													"value": "keep-alive"
+												},
+												{
+													"key": "Keep-Alive",
+													"value": "timeout=5"
+												}
+											],
+											"cookie": [],
+											"body": "{\n    \"nome\": \"Homer Greenholt IV\",\n    \"email\": \"Velma.Mraz@example.com\",\n    \"password\": \"jIRP6Zlz\",\n    \"administrador\": \"false\",\n    \"_id\": \"z1TYUl6sRuvvwBCn\"\n}"
+										}
+									]
 								},
 								{
 									"name": "CT_015: Buscar um usuário inexistente",
@@ -690,8 +1397,9 @@
 													"    pm.response.to.have.status(400);\r",
 													"});\r",
 													"\r",
-													"pm.test(\"Body matches string\", function () {\r",
-													"    pm.expect(pm.response.text()).to.include(\"Usuário não encontrado\");\r",
+													"pm.test(\"Checks response body\", function () {\r",
+													"    var jsonData = pm.response.json();\r",
+													"    pm.expect(jsonData.message).to.eql(\"Usuário não encontrado\");\r",
 													"});\r",
 													""
 												],
@@ -719,7 +1427,90 @@
 											]
 										}
 									},
-									"response": []
+									"response": [
+										{
+											"name": "Buscar usuário inexistente",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/usuarios/:_id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"usuarios",
+														":_id"
+													],
+													"variable": [
+														{
+															"key": "_id",
+															"value": "{{$randomPassword}}"
+														}
+													]
+												}
+											},
+											"status": "Bad Request",
+											"code": 400,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Access-Control-Allow-Origin",
+													"value": "*"
+												},
+												{
+													"key": "x-dns-prefetch-control",
+													"value": "off"
+												},
+												{
+													"key": "x-frame-options",
+													"value": "SAMEORIGIN"
+												},
+												{
+													"key": "strict-transport-security",
+													"value": "max-age=15552000; includeSubDomains"
+												},
+												{
+													"key": "x-download-options",
+													"value": "noopen"
+												},
+												{
+													"key": "x-content-type-options",
+													"value": "nosniff"
+												},
+												{
+													"key": "x-xss-protection",
+													"value": "1; mode=block"
+												},
+												{
+													"key": "x-moesif-transaction-id",
+													"value": "a5f3322e-f90f-4156-bc04-3e882177c0df"
+												},
+												{
+													"key": "Content-Type",
+													"value": "application/json; charset=utf-8"
+												},
+												{
+													"key": "Content-Length",
+													"value": "45"
+												},
+												{
+													"key": "Date",
+													"value": "Fri, 06 Oct 2023 18:53:34 GMT"
+												},
+												{
+													"key": "Connection",
+													"value": "keep-alive"
+												},
+												{
+													"key": "Keep-Alive",
+													"value": "timeout=5"
+												}
+											],
+											"cookie": [],
+											"body": "{\n    \"message\": \"Usuário não encontrado\"\n}"
+										}
+									]
 								}
 							],
 							"event": [
@@ -728,30 +1519,6 @@
 									"script": {
 										"type": "text/javascript",
 										"exec": [
-											"const name = pm.variables.replaceIn('{{$randomFullName}}');",
-											"pm.collectionVariables.set(\"randomName\", name);",
-											"const email = pm.variables.replaceIn('{{$randomExampleEmail}}');",
-											"pm.collectionVariables.set(\"randomEmail\", email);",
-											"",
-											"pm.sendRequest({",
-											"    url: pm.environment.get('baseUrl') + '/usuarios',",
-											"    method: 'POST',",
-											"    header: {",
-											"        'Accept': 'application/json',",
-											"        'Content-Type': 'application/json'",
-											"      },",
-											"    body: {",
-											"        mode: 'raw',",
-											"        raw: JSON.stringify({",
-											"            \"nome\": pm.collectionVariables.get('randomName'),",
-											"            \"email\": pm.collectionVariables.get('randomEmail'),",
-											"            \"password\": pm.collectionVariables.get('validPassword'),",
-											"            \"administrador\": \"false\"",
-											"        })",
-											"    }",
-											"}, function (err, res) {",
-											"    pm.collectionVariables.set(\"newUserId\", res.json()._id);",
-											"});",
 											""
 										]
 									}
@@ -777,7 +1544,6 @@
 											"listen": "prerequest",
 											"script": {
 												"exec": [
-													"\r",
 													""
 												],
 												"type": "text/javascript"
@@ -791,8 +1557,9 @@
 													"    pm.response.to.have.status(200);\r",
 													"});\r",
 													"\r",
-													"pm.test(\"Body matches string\", function () {\r",
-													"    pm.expect(pm.response.text()).to.include(\"Registro excluído com sucesso\");\r",
+													"pm.test(\"Checks response body\", function () {\r",
+													"    var jsonData = pm.response.json();\r",
+													"    pm.expect(jsonData.message).to.eql(\"Registro excluído com sucesso\");\r",
 													"});\r",
 													""
 												],
@@ -820,7 +1587,90 @@
 											]
 										}
 									},
-									"response": []
+									"response": [
+										{
+											"name": "Deletar usuário válido",
+											"originalRequest": {
+												"method": "DELETE",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/usuarios/:_id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"usuarios",
+														":_id"
+													],
+													"variable": [
+														{
+															"key": "_id",
+															"value": "{{newUserId}}"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Access-Control-Allow-Origin",
+													"value": "*"
+												},
+												{
+													"key": "x-dns-prefetch-control",
+													"value": "off"
+												},
+												{
+													"key": "x-frame-options",
+													"value": "SAMEORIGIN"
+												},
+												{
+													"key": "strict-transport-security",
+													"value": "max-age=15552000; includeSubDomains"
+												},
+												{
+													"key": "x-download-options",
+													"value": "noopen"
+												},
+												{
+													"key": "x-content-type-options",
+													"value": "nosniff"
+												},
+												{
+													"key": "x-xss-protection",
+													"value": "1; mode=block"
+												},
+												{
+													"key": "x-moesif-transaction-id",
+													"value": "68595234-1134-493e-aef2-3e24de2dace9"
+												},
+												{
+													"key": "Content-Type",
+													"value": "application/json; charset=utf-8"
+												},
+												{
+													"key": "Content-Length",
+													"value": "51"
+												},
+												{
+													"key": "Date",
+													"value": "Fri, 06 Oct 2023 18:54:42 GMT"
+												},
+												{
+													"key": "Connection",
+													"value": "keep-alive"
+												},
+												{
+													"key": "Keep-Alive",
+													"value": "timeout=5"
+												}
+											],
+											"cookie": [],
+											"body": "{\n    \"message\": \"Registro excluído com sucesso\"\n}"
+										}
+									]
 								},
 								{
 									"name": "CT_017: Deletar usuário inexistente",
@@ -842,8 +1692,9 @@
 													"    pm.response.to.have.status(200);\r",
 													"});\r",
 													"\r",
-													"pm.test(\"Body matches string\", function () {\r",
-													"    pm.expect(pm.response.text()).to.include(\"Nenhum registro excluído\");\r",
+													"pm.test(\"Checks response body\", function () {\r",
+													"    var jsonData = pm.response.json();\r",
+													"    pm.expect(jsonData.message).to.eql(\"Nenhum registro excluído\");\r",
 													"});\r",
 													""
 												],
@@ -871,7 +1722,90 @@
 											]
 										}
 									},
-									"response": []
+									"response": [
+										{
+											"name": "Deletar usuário inexistente",
+											"originalRequest": {
+												"method": "DELETE",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/usuarios/:_id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"usuarios",
+														":_id"
+													],
+													"variable": [
+														{
+															"key": "_id",
+															"value": "{{$randomPassword}}"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Access-Control-Allow-Origin",
+													"value": "*"
+												},
+												{
+													"key": "x-dns-prefetch-control",
+													"value": "off"
+												},
+												{
+													"key": "x-frame-options",
+													"value": "SAMEORIGIN"
+												},
+												{
+													"key": "strict-transport-security",
+													"value": "max-age=15552000; includeSubDomains"
+												},
+												{
+													"key": "x-download-options",
+													"value": "noopen"
+												},
+												{
+													"key": "x-content-type-options",
+													"value": "nosniff"
+												},
+												{
+													"key": "x-xss-protection",
+													"value": "1; mode=block"
+												},
+												{
+													"key": "x-moesif-transaction-id",
+													"value": "20a3f337-5e6b-41e9-ba36-12efb631e012"
+												},
+												{
+													"key": "Content-Type",
+													"value": "application/json; charset=utf-8"
+												},
+												{
+													"key": "Content-Length",
+													"value": "46"
+												},
+												{
+													"key": "Date",
+													"value": "Fri, 06 Oct 2023 18:57:50 GMT"
+												},
+												{
+													"key": "Connection",
+													"value": "keep-alive"
+												},
+												{
+													"key": "Keep-Alive",
+													"value": "timeout=5"
+												}
+											],
+											"cookie": [],
+											"body": "{\n    \"message\": \"Nenhum registro excluído\"\n}"
+										}
+									]
 								},
 								{
 									"name": "CT_018: Deletar usuário com carrinho ativo",
@@ -941,8 +1875,10 @@
 													"    pm.response.to.have.status(400);\r",
 													"});\r",
 													"\r",
-													"pm.test(\"Body matches string\", function () {\r",
-													"    pm.expect(pm.response.text()).to.include(\"Não é permitido excluir usuário com carrinho cadastrado\");\r",
+													"pm.test(\"Checks response body\", function () {\r",
+													"    var jsonData = pm.response.json();\r",
+													"    pm.expect(jsonData.message).to.eql(\"Não é permitido excluir usuário com carrinho cadastrado\");\r",
+													"    pm.expect(jsonData.idCarrinho).not.null;\r",
 													"});\r",
 													""
 												],
@@ -970,7 +1906,90 @@
 											]
 										}
 									},
-									"response": []
+									"response": [
+										{
+											"name": "Deletar usuário com carrinho ativo",
+											"originalRequest": {
+												"method": "DELETE",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/usuarios/:_id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"usuarios",
+														":_id"
+													],
+													"variable": [
+														{
+															"key": "_id",
+															"value": "{{newUserId}}"
+														}
+													]
+												}
+											},
+											"status": "Bad Request",
+											"code": 400,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Access-Control-Allow-Origin",
+													"value": "*"
+												},
+												{
+													"key": "x-dns-prefetch-control",
+													"value": "off"
+												},
+												{
+													"key": "x-frame-options",
+													"value": "SAMEORIGIN"
+												},
+												{
+													"key": "strict-transport-security",
+													"value": "max-age=15552000; includeSubDomains"
+												},
+												{
+													"key": "x-download-options",
+													"value": "noopen"
+												},
+												{
+													"key": "x-content-type-options",
+													"value": "nosniff"
+												},
+												{
+													"key": "x-xss-protection",
+													"value": "1; mode=block"
+												},
+												{
+													"key": "x-moesif-transaction-id",
+													"value": "2a67a174-86e9-4901-9b25-c5badccf2d3d"
+												},
+												{
+													"key": "Content-Type",
+													"value": "application/json; charset=utf-8"
+												},
+												{
+													"key": "Content-Length",
+													"value": "117"
+												},
+												{
+													"key": "Date",
+													"value": "Fri, 06 Oct 2023 18:59:15 GMT"
+												},
+												{
+													"key": "Connection",
+													"value": "keep-alive"
+												},
+												{
+													"key": "Keep-Alive",
+													"value": "timeout=5"
+												}
+											],
+											"cookie": [],
+											"body": "{\n    \"message\": \"Não é permitido excluir usuário com carrinho cadastrado\",\n    \"idCarrinho\": \"A6oQqmSAOhobA4zf\"\n}"
+										}
+									]
 								}
 							],
 							"event": [
@@ -1044,8 +2063,9 @@
 															"    pm.response.to.have.status(200);\r",
 															"});\r",
 															"\r",
-															"pm.test(\"Body matches string\", function () {\r",
-															"    pm.expect(pm.response.text()).to.include(\"Registro alterado com sucesso\");\r",
+															"pm.test(\"Checks response body\", function () {\r",
+															"    var jsonData = pm.response.json();\r",
+															"    pm.expect(jsonData.message).to.eql(\"Registro alterado com sucesso\");\r",
 															"});\r",
 															""
 														],
@@ -1082,7 +2102,99 @@
 													]
 												}
 											},
-											"response": []
+											"response": [
+												{
+													"name": "Atualizar usuário válido",
+													"originalRequest": {
+														"method": "PUT",
+														"header": [],
+														"body": {
+															"mode": "raw",
+															"raw": "{\r\n  \"nome\": \"{{$randomFullName}}\",\r\n  \"email\": \"{{$randomExampleEmail}}\",\r\n  \"password\": \"{{validPassword}}\",\r\n  \"administrador\": \"true\"\r\n}\r\n",
+															"options": {
+																"raw": {
+																	"language": "json"
+																}
+															}
+														},
+														"url": {
+															"raw": "{{baseUrl}}/usuarios/:_id",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"usuarios",
+																":_id"
+															],
+															"variable": [
+																{
+																	"key": "_id",
+																	"value": "{{newUserId}}"
+																}
+															]
+														}
+													},
+													"status": "OK",
+													"code": 200,
+													"_postman_previewlanguage": "json",
+													"header": [
+														{
+															"key": "Access-Control-Allow-Origin",
+															"value": "*"
+														},
+														{
+															"key": "x-dns-prefetch-control",
+															"value": "off"
+														},
+														{
+															"key": "x-frame-options",
+															"value": "SAMEORIGIN"
+														},
+														{
+															"key": "strict-transport-security",
+															"value": "max-age=15552000; includeSubDomains"
+														},
+														{
+															"key": "x-download-options",
+															"value": "noopen"
+														},
+														{
+															"key": "x-content-type-options",
+															"value": "nosniff"
+														},
+														{
+															"key": "x-xss-protection",
+															"value": "1; mode=block"
+														},
+														{
+															"key": "x-moesif-transaction-id",
+															"value": "fea4fd4a-a3f1-4ed3-bfe9-77009545ae48"
+														},
+														{
+															"key": "Content-Type",
+															"value": "application/json; charset=utf-8"
+														},
+														{
+															"key": "Content-Length",
+															"value": "50"
+														},
+														{
+															"key": "Date",
+															"value": "Fri, 06 Oct 2023 19:01:13 GMT"
+														},
+														{
+															"key": "Connection",
+															"value": "keep-alive"
+														},
+														{
+															"key": "Keep-Alive",
+															"value": "timeout=5"
+														}
+													],
+													"cookie": [],
+													"body": "{\n    \"message\": \"Registro alterado com sucesso\"\n}"
+												}
+											]
 										},
 										{
 											"name": "CT_020: Atualizar usuário válido com nome em branco",
@@ -1104,8 +2216,9 @@
 															"    pm.response.to.have.status(400);\r",
 															"});\r",
 															"\r",
-															"pm.test(\"Body matches string\", function () {\r",
-															"    pm.expect(pm.response.text()).to.include(\"nome não pode ficar em branco\");\r",
+															"pm.test(\"Checks response body\", function () {\r",
+															"    var jsonData = pm.response.json();\r",
+															"    pm.expect(jsonData.nome).to.eql(\"nome não pode ficar em branco\");\r",
 															"});\r",
 															""
 														],
@@ -1118,7 +2231,7 @@
 												"header": [],
 												"body": {
 													"mode": "raw",
-													"raw": "{\r\n  \"nome\": \"\",\r\n  \"email\": \"{{$randomExampleEmail}}\",\r\n  \"password\": \"{{validPassword}}\",\r\n  \"administrador\": \"true\"\r\n}\r\n",
+													"raw": "{\r\n  \"nome\": \" \",\r\n  \"email\": \"{{$randomExampleEmail}}\",\r\n  \"password\": \"{{validPassword}}\",\r\n  \"administrador\": \"true\"\r\n}\r\n",
 													"options": {
 														"raw": {
 															"language": "json"
@@ -1164,8 +2277,9 @@
 															"    pm.response.to.have.status(400);\r",
 															"});\r",
 															"\r",
-															"pm.test(\"Body matches string\", function () {\r",
-															"    pm.expect(pm.response.text()).to.include(\"email não pode ficar em branco\");\r",
+															"pm.test(\"Checks response body\", function () {\r",
+															"    var jsonData = pm.response.json();\r",
+															"    pm.expect(jsonData.email).to.eql(\"email não pode ficar em branco\");\r",
 															"});\r",
 															""
 														],
@@ -1202,7 +2316,99 @@
 													]
 												}
 											},
-											"response": []
+											"response": [
+												{
+													"name": "Atualizar usuário válido com e-mail em branco",
+													"originalRequest": {
+														"method": "PUT",
+														"header": [],
+														"body": {
+															"mode": "raw",
+															"raw": "{\r\n  \"nome\": \"{{$randomFullName}}\",\r\n  \"email\": \"\",\r\n  \"password\": \"{{validPassword}}\",\r\n  \"administrador\": \"true\"\r\n}\r\n",
+															"options": {
+																"raw": {
+																	"language": "json"
+																}
+															}
+														},
+														"url": {
+															"raw": "{{baseUrl}}/usuarios/:_id",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"usuarios",
+																":_id"
+															],
+															"variable": [
+																{
+																	"key": "_id",
+																	"value": "{{newUserId}}"
+																}
+															]
+														}
+													},
+													"status": "Bad Request",
+													"code": 400,
+													"_postman_previewlanguage": "json",
+													"header": [
+														{
+															"key": "Access-Control-Allow-Origin",
+															"value": "*"
+														},
+														{
+															"key": "x-dns-prefetch-control",
+															"value": "off"
+														},
+														{
+															"key": "x-frame-options",
+															"value": "SAMEORIGIN"
+														},
+														{
+															"key": "strict-transport-security",
+															"value": "max-age=15552000; includeSubDomains"
+														},
+														{
+															"key": "x-download-options",
+															"value": "noopen"
+														},
+														{
+															"key": "x-content-type-options",
+															"value": "nosniff"
+														},
+														{
+															"key": "x-xss-protection",
+															"value": "1; mode=block"
+														},
+														{
+															"key": "x-moesif-transaction-id",
+															"value": "942526f4-d1cf-425e-9799-dace72680f70"
+														},
+														{
+															"key": "Content-Type",
+															"value": "application/json; charset=utf-8"
+														},
+														{
+															"key": "Content-Length",
+															"value": "50"
+														},
+														{
+															"key": "Date",
+															"value": "Fri, 06 Oct 2023 19:04:41 GMT"
+														},
+														{
+															"key": "Connection",
+															"value": "keep-alive"
+														},
+														{
+															"key": "Keep-Alive",
+															"value": "timeout=5"
+														}
+													],
+													"cookie": [],
+													"body": "{\n    \"email\": \"email não pode ficar em branco\"\n}"
+												}
+											]
 										},
 										{
 											"name": "CT_022: Atualizar usuário válido com password em branco",
@@ -1224,8 +2430,9 @@
 															"    pm.response.to.have.status(400);\r",
 															"});\r",
 															"\r",
-															"pm.test(\"Body matches string\", function () {\r",
-															"    pm.expect(pm.response.text()).to.include(\"password não pode ficar em branco\");\r",
+															"pm.test(\"Checks response body\", function () {\r",
+															"    var jsonData = pm.response.json();\r",
+															"    pm.expect(jsonData.password).to.eql(\"password não pode ficar em branco\");\r",
 															"});\r",
 															""
 														],
@@ -1238,7 +2445,7 @@
 												"header": [],
 												"body": {
 													"mode": "raw",
-													"raw": "{\r\n  \"nome\": \"{{$randomFullName}}\",\r\n  \"email\": \"{{$randomExampleEmail}}\",\r\n  \"password\": \"\",\r\n  \"administrador\": \"true\"\r\n}\r\n",
+													"raw": "{\r\n  \"nome\": \"{{$randomFullName}}\",\r\n  \"email\": \"{{$randomExampleEmail}}\",\r\n  \"password\": \" \",\r\n  \"administrador\": \"true\"\r\n}\r\n",
 													"options": {
 														"raw": {
 															"language": "json"
@@ -1284,8 +2491,9 @@
 															"    pm.response.to.have.status(400);\r",
 															"});\r",
 															"\r",
-															"pm.test(\"Body matches string\", function () {\r",
-															"    pm.expect(pm.response.text()).to.include(\"administrador deve ser 'true' ou 'false'\");\r",
+															"pm.test(\"Checks response body\", function () {\r",
+															"    var jsonData = pm.response.json();\r",
+															"    pm.expect(jsonData.administrador).to.eql(\"administrador deve ser 'true' ou 'false'\");\r",
 															"});\r",
 															""
 														],
@@ -1322,7 +2530,99 @@
 													]
 												}
 											},
-											"response": []
+											"response": [
+												{
+													"name": "Atualizar usuário válido com administrador em branco",
+													"originalRequest": {
+														"method": "PUT",
+														"header": [],
+														"body": {
+															"mode": "raw",
+															"raw": "{\r\n  \"nome\": \"{{$randomFullName}}\",\r\n  \"email\": \"{{$randomExampleEmail}}\",\r\n  \"password\": \"{{validPassword}}\",\r\n  \"administrador\": \"\"\r\n}\r\n",
+															"options": {
+																"raw": {
+																	"language": "json"
+																}
+															}
+														},
+														"url": {
+															"raw": "{{baseUrl}}/usuarios/:_id",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"usuarios",
+																":_id"
+															],
+															"variable": [
+																{
+																	"key": "_id",
+																	"value": "{{newUserId}}"
+																}
+															]
+														}
+													},
+													"status": "Bad Request",
+													"code": 400,
+													"_postman_previewlanguage": "json",
+													"header": [
+														{
+															"key": "Access-Control-Allow-Origin",
+															"value": "*"
+														},
+														{
+															"key": "x-dns-prefetch-control",
+															"value": "off"
+														},
+														{
+															"key": "x-frame-options",
+															"value": "SAMEORIGIN"
+														},
+														{
+															"key": "strict-transport-security",
+															"value": "max-age=15552000; includeSubDomains"
+														},
+														{
+															"key": "x-download-options",
+															"value": "noopen"
+														},
+														{
+															"key": "x-content-type-options",
+															"value": "nosniff"
+														},
+														{
+															"key": "x-xss-protection",
+															"value": "1; mode=block"
+														},
+														{
+															"key": "x-moesif-transaction-id",
+															"value": "abb220ec-4c5a-4155-b471-699c65bb099f"
+														},
+														{
+															"key": "Content-Type",
+															"value": "application/json; charset=utf-8"
+														},
+														{
+															"key": "Content-Length",
+															"value": "67"
+														},
+														{
+															"key": "Date",
+															"value": "Fri, 06 Oct 2023 19:06:23 GMT"
+														},
+														{
+															"key": "Connection",
+															"value": "keep-alive"
+														},
+														{
+															"key": "Keep-Alive",
+															"value": "timeout=5"
+														}
+													],
+													"cookie": [],
+													"body": "{\n    \"administrador\": \"administrador deve ser 'true' ou 'false'\"\n}"
+												}
+											]
 										},
 										{
 											"name": "CT_024: Atualizar usuário válido com e-mail inválido",
@@ -1344,8 +2644,9 @@
 															"    pm.response.to.have.status(400);\r",
 															"});\r",
 															"\r",
-															"pm.test(\"Body matches string\", function () {\r",
-															"    pm.expect(pm.response.text()).to.include(\"email deve ser um email válido\");\r",
+															"pm.test(\"Checks response body\", function () {\r",
+															"    var jsonData = pm.response.json();\r",
+															"    pm.expect(jsonData.email).to.eql(\"email deve ser um email válido\");\r",
 															"});\r",
 															""
 														],
@@ -1382,7 +2683,99 @@
 													]
 												}
 											},
-											"response": []
+											"response": [
+												{
+													"name": "Atualizar usuário válido com e-mail inválido",
+													"originalRequest": {
+														"method": "PUT",
+														"header": [],
+														"body": {
+															"mode": "raw",
+															"raw": "{\r\n  \"nome\": \"{{$randomFullName}}\",\r\n  \"email\": \"{{$randomUserName}}.com\",\r\n  \"password\": \"{{validPassword}}\",\r\n  \"administrador\": \"true\"\r\n}\r\n",
+															"options": {
+																"raw": {
+																	"language": "json"
+																}
+															}
+														},
+														"url": {
+															"raw": "{{baseUrl}}/usuarios/:_id",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"usuarios",
+																":_id"
+															],
+															"variable": [
+																{
+																	"key": "_id",
+																	"value": "{{newUserId}}"
+																}
+															]
+														}
+													},
+													"status": "Bad Request",
+													"code": 400,
+													"_postman_previewlanguage": "json",
+													"header": [
+														{
+															"key": "Access-Control-Allow-Origin",
+															"value": "*"
+														},
+														{
+															"key": "x-dns-prefetch-control",
+															"value": "off"
+														},
+														{
+															"key": "x-frame-options",
+															"value": "SAMEORIGIN"
+														},
+														{
+															"key": "strict-transport-security",
+															"value": "max-age=15552000; includeSubDomains"
+														},
+														{
+															"key": "x-download-options",
+															"value": "noopen"
+														},
+														{
+															"key": "x-content-type-options",
+															"value": "nosniff"
+														},
+														{
+															"key": "x-xss-protection",
+															"value": "1; mode=block"
+														},
+														{
+															"key": "x-moesif-transaction-id",
+															"value": "5352a898-b70d-4811-bbf5-231e8b9f2153"
+														},
+														{
+															"key": "Content-Type",
+															"value": "application/json; charset=utf-8"
+														},
+														{
+															"key": "Content-Length",
+															"value": "50"
+														},
+														{
+															"key": "Date",
+															"value": "Fri, 06 Oct 2023 19:07:04 GMT"
+														},
+														{
+															"key": "Connection",
+															"value": "keep-alive"
+														},
+														{
+															"key": "Keep-Alive",
+															"value": "timeout=5"
+														}
+													],
+													"cookie": [],
+													"body": "{\n    \"email\": \"email deve ser um email válido\"\n}"
+												}
+											]
 										},
 										{
 											"name": "CT_025: Atualizar usuário válido com e-mail já cadastrado",
@@ -1404,8 +2797,9 @@
 															"    pm.response.to.have.status(400);\r",
 															"});\r",
 															"\r",
-															"pm.test(\"Body matches string\", function () {\r",
-															"    pm.expect(pm.response.text()).to.include(\"Este email já está sendo usado\");\r",
+															"pm.test(\"Checks response body\", function () {\r",
+															"    var jsonData = pm.response.json();\r",
+															"    pm.expect(jsonData.message).to.eql(\"Este email já está sendo usado\");\r",
 															"});\r",
 															""
 														],
@@ -1442,7 +2836,99 @@
 													]
 												}
 											},
-											"response": []
+											"response": [
+												{
+													"name": "Atualizar usuário válido com e-mail já cadastrado",
+													"originalRequest": {
+														"method": "PUT",
+														"header": [],
+														"body": {
+															"mode": "raw",
+															"raw": "{\r\n  \"nome\": \"{{$randomFullName}}\",\r\n  \"email\": \"{{adminEmail}}\",\r\n  \"password\": \"{{validPassword}}\",\r\n  \"administrador\": \"true\"\r\n}\r\n",
+															"options": {
+																"raw": {
+																	"language": "json"
+																}
+															}
+														},
+														"url": {
+															"raw": "{{baseUrl}}/usuarios/:_id",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"usuarios",
+																":_id"
+															],
+															"variable": [
+																{
+																	"key": "_id",
+																	"value": "{{newUserId}}"
+																}
+															]
+														}
+													},
+													"status": "Bad Request",
+													"code": 400,
+													"_postman_previewlanguage": "json",
+													"header": [
+														{
+															"key": "Access-Control-Allow-Origin",
+															"value": "*"
+														},
+														{
+															"key": "x-dns-prefetch-control",
+															"value": "off"
+														},
+														{
+															"key": "x-frame-options",
+															"value": "SAMEORIGIN"
+														},
+														{
+															"key": "strict-transport-security",
+															"value": "max-age=15552000; includeSubDomains"
+														},
+														{
+															"key": "x-download-options",
+															"value": "noopen"
+														},
+														{
+															"key": "x-content-type-options",
+															"value": "nosniff"
+														},
+														{
+															"key": "x-xss-protection",
+															"value": "1; mode=block"
+														},
+														{
+															"key": "x-moesif-transaction-id",
+															"value": "b5318b7a-b341-428e-b72c-658e7f736c71"
+														},
+														{
+															"key": "Content-Type",
+															"value": "application/json; charset=utf-8"
+														},
+														{
+															"key": "Content-Length",
+															"value": "53"
+														},
+														{
+															"key": "Date",
+															"value": "Fri, 06 Oct 2023 19:08:38 GMT"
+														},
+														{
+															"key": "Connection",
+															"value": "keep-alive"
+														},
+														{
+															"key": "Keep-Alive",
+															"value": "timeout=5"
+														}
+													],
+													"cookie": [],
+													"body": "{\n    \"message\": \"Este email já está sendo usado\"\n}"
+												}
+											]
 										},
 										{
 											"name": "CT_026: Atualizar usuário válido com Hotmail",
@@ -1464,8 +2950,9 @@
 															"    pm.response.to.have.status(400);\r",
 															"});\r",
 															"\r",
-															"pm.test(\"Body matches string\", function () {\r",
-															"    pm.expect(pm.response.text()).to.include(\"Não é possível realizar cadastro com provedor de e-mail Hotmail\");\r",
+															"pm.test(\"Checks response body\", function () {\r",
+															"    var jsonData = pm.response.json();\r",
+															"    pm.expect(jsonData.email).to.eql(\"Não é possível realizar cadastro com provedor de e-mail Hotmail\");\r",
 															"});\r",
 															""
 														],
@@ -1524,8 +3011,9 @@
 															"    pm.response.to.have.status(400);\r",
 															"});\r",
 															"\r",
-															"pm.test(\"Body matches string\", function () {\r",
-															"    pm.expect(pm.response.text()).to.include(\"Não é possível realizar cadastro com provedor de e-mail Gmail\");\r",
+															"pm.test(\"Checks response body\", function () {\r",
+															"    var jsonData = pm.response.json();\r",
+															"    pm.expect(jsonData.email).to.eql(\"Não é possível realizar cadastro com provedor de e-mail Gmail\");\r",
 															"});\r",
 															""
 														],
@@ -1585,8 +3073,9 @@
 															"    pm.response.to.have.status(400);\r",
 															"});\r",
 															"\r",
-															"pm.test(\"Body matches string\", function () {\r",
-															"    pm.expect(pm.response.text()).to.include(\"A senha deve ter no mínimo 5 caracteres\");\r",
+															"pm.test(\"Checks response body\", function () {\r",
+															"    var jsonData = pm.response.json();\r",
+															"    pm.expect(jsonData.message).to.eql(\"A senha deve ter no mínimo 5 caracteres\");\r",
 															"});\r",
 															""
 														],
@@ -1647,8 +3136,9 @@
 															"    pm.response.to.have.status(400);\r",
 															"});\r",
 															"\r",
-															"pm.test(\"Body matches string\", function () {\r",
-															"    pm.expect(pm.response.text()).to.include(\"A senha deve ter no máximo 10 caracteres\");\r",
+															"pm.test(\"Checks response body\", function () {\r",
+															"    var jsonData = pm.response.json();\r",
+															"    pm.expect(jsonData.message).to.eql(\"A senha deve ter no máximo 10 caracteres\");\r",
 															"});\r",
 															""
 														],
@@ -1758,7 +3248,7 @@
 															"\r",
 															"pm.test(\"Checks the response body\", function () {\r",
 															"    var jsonData = pm.response.json();\r",
-															"    pm.expect(jsonData.message).to.equal('Cadastro realizado com sucesso');\r",
+															"    pm.expect(jsonData.message).to.equal(\"Cadastro realizado com sucesso\");\r",
 															"    pm.expect(jsonData._id).not.null;\r",
 															"});\r",
 															""
@@ -1796,7 +3286,99 @@
 													]
 												}
 											},
-											"response": []
+											"response": [
+												{
+													"name": "Realizar cadastro válido",
+													"originalRequest": {
+														"method": "PUT",
+														"header": [],
+														"body": {
+															"mode": "raw",
+															"raw": "{\r\n  \"nome\": \"{{$randomFullName}}\",\r\n  \"email\": \"{{$randomExampleEmail}}\",\r\n  \"password\": \"{{validPassword}}\",\r\n  \"administrador\": \"true\"\r\n}\r\n",
+															"options": {
+																"raw": {
+																	"language": "json"
+																}
+															}
+														},
+														"url": {
+															"raw": "{{baseUrl}}/usuarios/:_id",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"usuarios",
+																":_id"
+															],
+															"variable": [
+																{
+																	"key": "_id",
+																	"value": "{{$randomPassword}}"
+																}
+															]
+														}
+													},
+													"status": "Created",
+													"code": 201,
+													"_postman_previewlanguage": "json",
+													"header": [
+														{
+															"key": "Access-Control-Allow-Origin",
+															"value": "*"
+														},
+														{
+															"key": "x-dns-prefetch-control",
+															"value": "off"
+														},
+														{
+															"key": "x-frame-options",
+															"value": "SAMEORIGIN"
+														},
+														{
+															"key": "strict-transport-security",
+															"value": "max-age=15552000; includeSubDomains"
+														},
+														{
+															"key": "x-download-options",
+															"value": "noopen"
+														},
+														{
+															"key": "x-content-type-options",
+															"value": "nosniff"
+														},
+														{
+															"key": "x-xss-protection",
+															"value": "1; mode=block"
+														},
+														{
+															"key": "x-moesif-transaction-id",
+															"value": "60a7f6db-d66e-4444-8d46-eb6a75c93e85"
+														},
+														{
+															"key": "Content-Type",
+															"value": "application/json; charset=utf-8"
+														},
+														{
+															"key": "Content-Length",
+															"value": "82"
+														},
+														{
+															"key": "Date",
+															"value": "Fri, 06 Oct 2023 19:42:51 GMT"
+														},
+														{
+															"key": "Connection",
+															"value": "keep-alive"
+														},
+														{
+															"key": "Keep-Alive",
+															"value": "timeout=5"
+														}
+													],
+													"cookie": [],
+													"body": "{\n    \"message\": \"Cadastro realizado com sucesso\",\n    \"_id\": \"Cs4wx3LKVvefa6wY\"\n}"
+												}
+											]
 										},
 										{
 											"name": "CT_031: Atualizar usuário inexistente com nome em branco",
@@ -1818,8 +3400,9 @@
 															"    pm.response.to.have.status(400);\r",
 															"});\r",
 															"\r",
-															"pm.test(\"Body matches string\", function () {\r",
-															"    pm.expect(pm.response.text()).to.include(\"nome não pode ficar em branco\");\r",
+															"pm.test(\"Checks response body\", function () {\r",
+															"    var jsonData = pm.response.json();\r",
+															"    pm.expect(jsonData.nome).to.eql(\"nome não pode ficar em branco\");\r",
 															"});\r",
 															""
 														],
@@ -1832,7 +3415,7 @@
 												"header": [],
 												"body": {
 													"mode": "raw",
-													"raw": "{\r\n  \"nome\": \"\",\r\n  \"email\": \"{{$randomExampleEmail}}\",\r\n  \"password\": \"{{validPassword}}\",\r\n  \"administrador\": \"true\"\r\n}\r\n",
+													"raw": "{\r\n  \"nome\": \" \",\r\n  \"email\": \"{{$randomExampleEmail}}\",\r\n  \"password\": \"{{validPassword}}\",\r\n  \"administrador\": \"true\"\r\n}\r\n",
 													"options": {
 														"raw": {
 															"language": "json"
@@ -1878,8 +3461,9 @@
 															"    pm.response.to.have.status(400);\r",
 															"});\r",
 															"\r",
-															"pm.test(\"Body matches string\", function () {\r",
-															"    pm.expect(pm.response.text()).to.include(\"email não pode ficar em branco\");\r",
+															"pm.test(\"Checks response body\", function () {\r",
+															"    var jsonData = pm.response.json();\r",
+															"    pm.expect(jsonData.email).to.eql(\"email não pode ficar em branco\");\r",
 															"});\r",
 															""
 														],
@@ -1916,7 +3500,99 @@
 													]
 												}
 											},
-											"response": []
+											"response": [
+												{
+													"name": "Atualizar usuário inexistente com e-mail em branco",
+													"originalRequest": {
+														"method": "PUT",
+														"header": [],
+														"body": {
+															"mode": "raw",
+															"raw": "{\r\n  \"nome\": \"{{$randomFullName}}\",\r\n  \"email\": \"\",\r\n  \"password\": \"{{validPassword}}\",\r\n  \"administrador\": \"true\"\r\n}\r\n",
+															"options": {
+																"raw": {
+																	"language": "json"
+																}
+															}
+														},
+														"url": {
+															"raw": "{{baseUrl}}/usuarios/:_id",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"usuarios",
+																":_id"
+															],
+															"variable": [
+																{
+																	"key": "_id",
+																	"value": "{{$randomPassword}}"
+																}
+															]
+														}
+													},
+													"status": "Bad Request",
+													"code": 400,
+													"_postman_previewlanguage": "json",
+													"header": [
+														{
+															"key": "Access-Control-Allow-Origin",
+															"value": "*"
+														},
+														{
+															"key": "x-dns-prefetch-control",
+															"value": "off"
+														},
+														{
+															"key": "x-frame-options",
+															"value": "SAMEORIGIN"
+														},
+														{
+															"key": "strict-transport-security",
+															"value": "max-age=15552000; includeSubDomains"
+														},
+														{
+															"key": "x-download-options",
+															"value": "noopen"
+														},
+														{
+															"key": "x-content-type-options",
+															"value": "nosniff"
+														},
+														{
+															"key": "x-xss-protection",
+															"value": "1; mode=block"
+														},
+														{
+															"key": "x-moesif-transaction-id",
+															"value": "d3eb7c1b-f1ba-4c81-8e8c-10bf2591f9e2"
+														},
+														{
+															"key": "Content-Type",
+															"value": "application/json; charset=utf-8"
+														},
+														{
+															"key": "Content-Length",
+															"value": "50"
+														},
+														{
+															"key": "Date",
+															"value": "Fri, 06 Oct 2023 19:44:55 GMT"
+														},
+														{
+															"key": "Connection",
+															"value": "keep-alive"
+														},
+														{
+															"key": "Keep-Alive",
+															"value": "timeout=5"
+														}
+													],
+													"cookie": [],
+													"body": "{\n    \"email\": \"email não pode ficar em branco\"\n}"
+												}
+											]
 										},
 										{
 											"name": "CT_033: Atualizar usuário inexistente com password em branco",
@@ -1938,8 +3614,9 @@
 															"    pm.response.to.have.status(400);\r",
 															"});\r",
 															"\r",
-															"pm.test(\"Body matches string\", function () {\r",
-															"    pm.expect(pm.response.text()).to.include(\"password não pode ficar em branco\");\r",
+															"pm.test(\"Checks response body\", function () {\r",
+															"    var jsonData = pm.response.json();\r",
+															"    pm.expect(jsonData.password).to.eql(\"password não pode ficar em branco\");\r",
 															"});\r",
 															""
 														],
@@ -1952,7 +3629,7 @@
 												"header": [],
 												"body": {
 													"mode": "raw",
-													"raw": "{\r\n  \"nome\": \"{{$randomFullName}}\",\r\n  \"email\": \"{{$randomExampleEmail}}\",\r\n  \"password\": \"\",\r\n  \"administrador\": \"true\"\r\n}\r\n",
+													"raw": "{\r\n  \"nome\": \"{{$randomFullName}}\",\r\n  \"email\": \"{{$randomExampleEmail}}\",\r\n  \"password\": \" \",\r\n  \"administrador\": \"true\"\r\n}\r\n",
 													"options": {
 														"raw": {
 															"language": "json"
@@ -1998,8 +3675,9 @@
 															"    pm.response.to.have.status(400);\r",
 															"});\r",
 															"\r",
-															"pm.test(\"Body matches string\", function () {\r",
-															"    pm.expect(pm.response.text()).to.include(\"administrador deve ser 'true' ou 'false'\");\r",
+															"pm.test(\"Checks response body\", function () {\r",
+															"    var jsonData = pm.response.json();\r",
+															"    pm.expect(jsonData.administrador).to.eql(\"administrador deve ser 'true' ou 'false'\");\r",
 															"});\r",
 															""
 														],
@@ -2036,7 +3714,99 @@
 													]
 												}
 											},
-											"response": []
+											"response": [
+												{
+													"name": "Atualizar usuário inexistente com administrador em branco",
+													"originalRequest": {
+														"method": "PUT",
+														"header": [],
+														"body": {
+															"mode": "raw",
+															"raw": "{\r\n  \"nome\": \"{{$randomFullName}}\",\r\n  \"email\": \"{{$randomExampleEmail}}\",\r\n  \"password\": \"{{validPassword}}\",\r\n  \"administrador\": \"\"\r\n}\r\n",
+															"options": {
+																"raw": {
+																	"language": "json"
+																}
+															}
+														},
+														"url": {
+															"raw": "{{baseUrl}}/usuarios/:_id",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"usuarios",
+																":_id"
+															],
+															"variable": [
+																{
+																	"key": "_id",
+																	"value": "{{$randomPassword}}"
+																}
+															]
+														}
+													},
+													"status": "Bad Request",
+													"code": 400,
+													"_postman_previewlanguage": "json",
+													"header": [
+														{
+															"key": "Access-Control-Allow-Origin",
+															"value": "*"
+														},
+														{
+															"key": "x-dns-prefetch-control",
+															"value": "off"
+														},
+														{
+															"key": "x-frame-options",
+															"value": "SAMEORIGIN"
+														},
+														{
+															"key": "strict-transport-security",
+															"value": "max-age=15552000; includeSubDomains"
+														},
+														{
+															"key": "x-download-options",
+															"value": "noopen"
+														},
+														{
+															"key": "x-content-type-options",
+															"value": "nosniff"
+														},
+														{
+															"key": "x-xss-protection",
+															"value": "1; mode=block"
+														},
+														{
+															"key": "x-moesif-transaction-id",
+															"value": "8c8ee50b-28bd-442b-b943-5fc92258bee9"
+														},
+														{
+															"key": "Content-Type",
+															"value": "application/json; charset=utf-8"
+														},
+														{
+															"key": "Content-Length",
+															"value": "67"
+														},
+														{
+															"key": "Date",
+															"value": "Fri, 06 Oct 2023 19:47:15 GMT"
+														},
+														{
+															"key": "Connection",
+															"value": "keep-alive"
+														},
+														{
+															"key": "Keep-Alive",
+															"value": "timeout=5"
+														}
+													],
+													"cookie": [],
+													"body": "{\n    \"administrador\": \"administrador deve ser 'true' ou 'false'\"\n}"
+												}
+											]
 										},
 										{
 											"name": "CT_035: Atualizar usuário inexistente com e-mail inválido",
@@ -2058,8 +3828,9 @@
 															"    pm.response.to.have.status(400);\r",
 															"});\r",
 															"\r",
-															"pm.test(\"Body matches string\", function () {\r",
-															"    pm.expect(pm.response.text()).to.include(\"email deve ser um email válido\");\r",
+															"pm.test(\"Checks response body\", function () {\r",
+															"    var jsonData = pm.response.json();\r",
+															"    pm.expect(jsonData.email).to.eql(\"email deve ser um email válido\");\r",
 															"});\r",
 															""
 														],
@@ -2096,7 +3867,99 @@
 													]
 												}
 											},
-											"response": []
+											"response": [
+												{
+													"name": "Atualizar usuário inexistente com e-mail inválido",
+													"originalRequest": {
+														"method": "PUT",
+														"header": [],
+														"body": {
+															"mode": "raw",
+															"raw": "{\r\n  \"nome\": \"{{$randomFullName}}\",\r\n  \"email\": \"{{$randomUserName}}.com\",\r\n  \"password\": \"{{validPassword}}\",\r\n  \"administrador\": \"true\"\r\n}\r\n",
+															"options": {
+																"raw": {
+																	"language": "json"
+																}
+															}
+														},
+														"url": {
+															"raw": "{{baseUrl}}/usuarios/:_id",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"usuarios",
+																":_id"
+															],
+															"variable": [
+																{
+																	"key": "_id",
+																	"value": "{{$randomPassword}}"
+																}
+															]
+														}
+													},
+													"status": "Bad Request",
+													"code": 400,
+													"_postman_previewlanguage": "json",
+													"header": [
+														{
+															"key": "Access-Control-Allow-Origin",
+															"value": "*"
+														},
+														{
+															"key": "x-dns-prefetch-control",
+															"value": "off"
+														},
+														{
+															"key": "x-frame-options",
+															"value": "SAMEORIGIN"
+														},
+														{
+															"key": "strict-transport-security",
+															"value": "max-age=15552000; includeSubDomains"
+														},
+														{
+															"key": "x-download-options",
+															"value": "noopen"
+														},
+														{
+															"key": "x-content-type-options",
+															"value": "nosniff"
+														},
+														{
+															"key": "x-xss-protection",
+															"value": "1; mode=block"
+														},
+														{
+															"key": "x-moesif-transaction-id",
+															"value": "18e38fa2-faa6-43d5-82a5-9f6048145790"
+														},
+														{
+															"key": "Content-Type",
+															"value": "application/json; charset=utf-8"
+														},
+														{
+															"key": "Content-Length",
+															"value": "50"
+														},
+														{
+															"key": "Date",
+															"value": "Fri, 06 Oct 2023 19:47:59 GMT"
+														},
+														{
+															"key": "Connection",
+															"value": "keep-alive"
+														},
+														{
+															"key": "Keep-Alive",
+															"value": "timeout=5"
+														}
+													],
+													"cookie": [],
+													"body": "{\n    \"email\": \"email deve ser um email válido\"\n}"
+												}
+											]
 										},
 										{
 											"name": "CT_036: Atualizar usuário inexistente com e-mail já cadastrado",
@@ -2118,8 +3981,9 @@
 															"    pm.response.to.have.status(400);\r",
 															"});\r",
 															"\r",
-															"pm.test(\"Body matches string\", function () {\r",
-															"    pm.expect(pm.response.text()).to.include(\"Este email já está sendo usado\");\r",
+															"pm.test(\"Checks response body\", function () {\r",
+															"    var jsonData = pm.response.json();\r",
+															"    pm.expect(jsonData.message).to.eql(\"Este email já está sendo usado\");\r",
 															"});\r",
 															""
 														],
@@ -2156,7 +4020,99 @@
 													]
 												}
 											},
-											"response": []
+											"response": [
+												{
+													"name": "Atualizar usuário inexistente com e-mail já cadastrado",
+													"originalRequest": {
+														"method": "PUT",
+														"header": [],
+														"body": {
+															"mode": "raw",
+															"raw": "{\r\n  \"nome\": \"{{$randomFullName}}\",\r\n  \"email\": \"{{adminEmail}}\",\r\n  \"password\": \"{{validPassword}}\",\r\n  \"administrador\": \"true\"\r\n}\r\n",
+															"options": {
+																"raw": {
+																	"language": "json"
+																}
+															}
+														},
+														"url": {
+															"raw": "{{baseUrl}}/usuarios/:_id",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"usuarios",
+																":_id"
+															],
+															"variable": [
+																{
+																	"key": "_id",
+																	"value": "{{$randomPassword}}"
+																}
+															]
+														}
+													},
+													"status": "Bad Request",
+													"code": 400,
+													"_postman_previewlanguage": "json",
+													"header": [
+														{
+															"key": "Access-Control-Allow-Origin",
+															"value": "*"
+														},
+														{
+															"key": "x-dns-prefetch-control",
+															"value": "off"
+														},
+														{
+															"key": "x-frame-options",
+															"value": "SAMEORIGIN"
+														},
+														{
+															"key": "strict-transport-security",
+															"value": "max-age=15552000; includeSubDomains"
+														},
+														{
+															"key": "x-download-options",
+															"value": "noopen"
+														},
+														{
+															"key": "x-content-type-options",
+															"value": "nosniff"
+														},
+														{
+															"key": "x-xss-protection",
+															"value": "1; mode=block"
+														},
+														{
+															"key": "x-moesif-transaction-id",
+															"value": "94916540-16b5-430d-ab75-dccd30a88882"
+														},
+														{
+															"key": "Content-Type",
+															"value": "application/json; charset=utf-8"
+														},
+														{
+															"key": "Content-Length",
+															"value": "53"
+														},
+														{
+															"key": "Date",
+															"value": "Fri, 06 Oct 2023 19:48:50 GMT"
+														},
+														{
+															"key": "Connection",
+															"value": "keep-alive"
+														},
+														{
+															"key": "Keep-Alive",
+															"value": "timeout=5"
+														}
+													],
+													"cookie": [],
+													"body": "{\n    \"message\": \"Este email já está sendo usado\"\n}"
+												}
+											]
 										},
 										{
 											"name": "CT_037: Atualizar usuário inexistente com Hotmail",
@@ -2178,8 +4134,9 @@
 															"    pm.response.to.have.status(400);\r",
 															"});\r",
 															"\r",
-															"pm.test(\"Body matches string\", function () {\r",
-															"    pm.expect(pm.response.text()).to.include(\"Não é possível realizar cadastro com provedor de e-mail Hotmail\");\r",
+															"pm.test(\"Checks response body\", function () {\r",
+															"    var jsonData = pm.response.json();\r",
+															"    pm.expect(jsonData.message).to.eql(\"Não é possível realizar cadastro com provedor de e-mail Hotmail\");\r",
 															"});\r",
 															""
 														],
@@ -2238,8 +4195,9 @@
 															"    pm.response.to.have.status(400);\r",
 															"});\r",
 															"\r",
-															"pm.test(\"Body matches string\", function () {\r",
-															"    pm.expect(pm.response.text()).to.include(\"Não é possível realizar cadastro com provedor de e-mail Gmail\");\r",
+															"pm.test(\"Checks response body\", function () {\r",
+															"    var jsonData = pm.response.json();\r",
+															"    pm.expect(jsonData.message).to.eql(\"Não é possível realizar cadastro com provedor de e-mail Gmail\");\r",
 															"});\r",
 															""
 														],
@@ -2299,8 +4257,9 @@
 															"    pm.response.to.have.status(400);\r",
 															"});\r",
 															"\r",
-															"pm.test(\"Body matches string\", function () {\r",
-															"    pm.expect(pm.response.text()).to.include(\"A senha deve ter no mínimo 5 caracteres\");\r",
+															"pm.test(\"Checks response body\", function () {\r",
+															"    var jsonData = pm.response.json();\r",
+															"    pm.expect(jsonData.message).to.eql(\"A senha deve ter no mínimo 5 caracteres\");\r",
 															"});\r",
 															""
 														],
@@ -2361,8 +4320,9 @@
 															"    pm.response.to.have.status(400);\r",
 															"});\r",
 															"\r",
-															"pm.test(\"Body matches string\", function () {\r",
-															"    pm.expect(pm.response.text()).to.include(\"A senha deve ter no máximo 10 caracteres\");\r",
+															"pm.test(\"Checks response body\", function () {\r",
+															"    var jsonData = pm.response.json();\r",
+															"    pm.expect(jsonData.message).to.eql(\"A senha deve ter no máximo 10 caracteres\");\r",
 															"});\r",
 															""
 														],
