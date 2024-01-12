@@ -1,5 +1,3 @@
-<div align="center"><img src="https://media.licdn.com/dms/image/C4D16AQElB0y1d5svPg/profile-displaybackgroundimage-shrink_200_800/0/1658867832742?e=2147483647&v=beta&t=i56I1rSG-TTCSP6hZbam6Wo9gwZINgRKqeXGKuCwP0w" tittle="compass.uol"></div>
-
 # Automação de testes de API - Estágio QA Compass.UOL
 
 Este é um projeto de automação da API ServeRest desenvolvido durante a Sprint 7 do programa de bolsas da empresa Compass.UOL. 
@@ -20,11 +18,11 @@ Você pode encontrar o arquivo do mapa [clicando aqui](/mapa-mental)
 
 3. Digite estes comandos no terminal para clonar os arquivos:
    ```
-   git clone https://github.com/LuisDiasCompass/Sprint7_LuisDias_Compass.git
+   git clone https://github.com/LuisEdDias/Sprint7_LuisDias_Compass.git
 
    ```
 
-   Você também pode baixar o [arquivo zip](https://github.com/LuisDiasCompass/Sprint7_LuisDias_Compass/archive/refs/heads/main.zip) e descompactar na sua pasta.
+   Você também pode baixar o [arquivo zip](https://github.com/LuisEdDias/Sprint7_LuisDias_Compass/archive/refs/heads/main.zip) e descompactar na sua pasta.
 
 4. Abra o Postman e importe os seguintes arquivos do repositório que você baixou que estão dentro da pasta 'postman':
 
@@ -76,4 +74,4 @@ Você pode encontrar o arquivo do mapa [clicando aqui](/mapa-mental)
 Este repositório contém códigos, exercícios e informações relacionados ao meu estágio no Studio Quality & Test Automation da Compass.UOL. Fique à vontade para utilizar e me enviar mensagem para dúvidas, feedbacks ou sugestões.
 
 ## Contato
-### Luís Eduardo Dias, [Enviar e-mail](mailto:luis.dias.pb@compasso.com.br).
+### Linkedin [Luís Eduardo Vahl Dias](https://www.linkedin.com/in/luisvdias94/).
